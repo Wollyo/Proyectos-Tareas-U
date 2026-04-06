@@ -1,7 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1775439138.43437 "c:/Users/madar/OneDrive/Escritorio/Uni/Apuntes/Tarea_Control/main.tex" "main.pdf" "main" 1775439139.86867 0
+["pdflatex"] 1775518568.1051 "c:/Users/madar/OneDrive/Escritorio/Uni/Apuntes/Tarea_Control/main.tex" "main.pdf" "main" 1775518569.27465 0
   "C:/Users/madar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775439136 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+  "C:/Users/madar/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1775516845 12668 3fb82dc48bcfab289311a2f8890d25c1 ""
   "C:/Users/madar/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1775439043 13333848 624035084709ac8a10e0894535ab2aa3 ""
+  "C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1095.tfm" 993062508 1460 8005ce585ff351dff78998923504da5e ""
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -30,7 +32,6 @@
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
-  "C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/tex/generic/bigintcalc/bigintcalc.sty" 1576433602 40635 c40361e206be584d448876bba8a64a3b ""
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/tex/generic/bitset/bitset.sty" 1575926576 33961 6b5c75130e435b2bfdb9f480a09a39f9 ""
@@ -190,11 +191,11 @@
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/pst-xkey.sty" 1656236919 1694 74b0201cd6a70abed294b6332f129c41 ""
   "C:/Users/madar/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/madar/OneDrive/Escritorio/Uni/Apuntes/Tarea_Control/main.tex" 1775439009 6908 e10347710b44c9a9b627491f3acba637 ""
+  "c:/Users/madar/OneDrive/Escritorio/Uni/Apuntes/Tarea_Control/main.tex" 1775518567 6227 e4be6bec64ff60891d7cd6a5c77194d5 ""
   "logo.png" 1775439009 26248 4d7b40f412f8c4382ddc153162ebf46b ""
-  "main.aux" 1775439139 426 395804ea2b967cda60c738e78c052417 "pdflatex"
-  "main.out" 1775439139 446 2a66f567c29046a405c1d3adb30b8bac "pdflatex"
-  "main.tex" 1775439009 6908 e10347710b44c9a9b627491f3acba637 ""
+  "main.aux" 1775518569 532 393b4807b13c5bc10a7df59561b50717 "pdflatex"
+  "main.out" 1775518569 539 618b8cfdb71026bc3bd3f8e78136cade "pdflatex"
+  "main.tex" 1775518567 6227 e4be6bec64ff60891d7cd6a5c77194d5 ""
   "uofa-eng-assignment.cls" 1775439009 2035 0c154ee5e42a7135dd9f66fcfa9f85ad ""
   (generated)
   "main.aux"
