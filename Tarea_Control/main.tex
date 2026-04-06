@@ -1,0 +1,267 @@
+\documentclass{uofa-eng-assignment}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{boxedminipage}
+\hypersetup{
+    colorlinks = false,
+    linkbordercolor = {white},
+}
+\captionsetup[table]{name=Tabla, labelsep=period}
+\captionsetup[figure]{name=Figura, labelsep=period}
+
+\newcommand{\hpl}{\hyperlink}
+\newcommand{\hpt}{\hypertarget}
+\newcommand*{\name}{Joan Sebastian Ramirez Sanchez}
+\newcommand*{\id}{2223948}
+\newcommand*{\course}{Introducción a la teoría de control}
+\newcommand*{\assignment}[1]{Tarea #1}
+\newcommand*{\dated}{\today}
+\newcommand{\tf}{\textbf}
+
+\begin{document}
+
+\maketitle
+\section{Vehículo Aéreo No Tripulado Cuadricóptero}
+
+\textbf{Contexto y aplicación.} 
+Los cuadricópteros son plataformas de 6 grados de libertad (6-DOF) con fuerte acoplamiento no lineal. Su control preciso es esencial en logística autónoma, inspección de infraestructura y movilidad aérea urbana. Las no linealidades surgen de las transformaciones de orientación mediante ángulos de Euler
+
+\subsection*{Variables del sistema}
+
+\begin{center}
+\begin{tabular}{lll}
+\hline
+\textbf{Símbolo} & \textbf{Unidades} & \textbf{Descripción} \\
+\hline
+$\phi, \theta, \psi$ & rad & Ángulos de Euler (roll, pitch, yaw) \\
+$\Omega_i$ & rad/s & Velocidad angular del rotor $i$ \\
+$k_T$ & N$\cdot$s$^2$ & Constante de empuje \\
+$k_D$ & N$\cdot$m$\cdot$s$^2$ & Constante de par aerodinámico \\
+$I_x, I_y, I_z$ & kg$\cdot$m$^2$ & Momentos de inercia principales \\
+$L$ & m & Distancia del centro al rotor \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection*{Ecuaciones no lineales del sistema}
+
+\begin{tcolorbox}[colback=brown!10!white, colframe=brown!60!black, title=No linealidades principales]
+\begin{align*}
+    \ddot{z} &= \frac{T}{m} \cos\phi \cos\theta - g 
+\quad \text{(producto de trigonom.)} \\
+I_x \ddot{\phi} 
+&= \dot{\theta}\dot{\psi}(I_y - I_z) + \tau_\phi
+\end{align*}
+\end{tcolorbox}
+\section{Linealización del sistema}
+Se expande en serie de Taylor hasta primer orden:
+\[
+\ddot{z} = f(T,\phi,\theta) \approx f(T_0,0,0) 
++ \left.\frac{\partial f}{\partial T}\right|_{0}\,\delta T
++ \left.\frac{\partial f}{\partial \phi}\right|_{0}\,\delta \phi
++ \left.\frac{\partial f}{\partial \theta}\right|_{0}\,\delta \theta.
+\]
+
+Cálculo de derivadas:
+\[
+\left.\frac{\partial f}{\partial T}\right|_{0}
+= \frac{1}{m}\cos\phi \cos\theta \Big|_{0}
+= \frac{1}{m},
+\]
+
+\[
+\left.\frac{\partial f}{\partial \phi}\right|_{0}
+= \frac{T}{m}(-\sin\phi \cos\theta)\Big|_{0}
+= 0,
+\]
+
+\[
+\left.\frac{\partial f}{\partial \theta}\right|_{0}
+= \frac{T}{m}(\cos\phi (-\sin\theta))\Big|_{0}
+= 0.
+\]
+por lo tanto tenemos que 
+\[
+\ddot{z} \approx  \frac{\delta T}{m}
+\]
+con la segunda ecuacion tenemos 
+\[
+g(\dot{\theta}, \psi, \tau_\phi) = \dot{\theta}\psi (I_y - I_z) + \tau_\phi.
+\]
+En el equilibrio, \(\dot{\theta}_0 = 0\), \(\psi_0 = 0\), \(\tau_{\phi 0} = 0\). Expandimos:
+\[
+I_x \,\ddot{\phi} =
+\left.\frac{\partial g}{\partial \dot{\theta}}\right|_{0}\,\delta \dot{\theta}
++ \left.\frac{\partial g}{\partial \psi}\right|_{0}\,\delta \psi
++ \left.\frac{\partial g}{\partial \tau_\phi}\right|_{0}\,\delta \tau_\phi.
+\]
+
+Derivadas:
+\[
+\frac{\partial g}{\partial \dot{\theta}} = \psi (I_y - I_z)
+\;\;\Rightarrow\;\;
+\left.\frac{\partial g}{\partial \dot{\theta}}\right|_{0} = 0,
+\]
+
+\[
+\frac{\partial g}{\partial \psi} = \dot{\theta} (I_y - I_z)
+\;\;\Rightarrow\;\;
+\left.\frac{\partial g}{\partial \psi}\right|_{0} = 0,
+\]
+
+\[
+\frac{\partial g}{\partial \tau_\phi} = 1
+\;\;\Rightarrow\;\;
+\left.\frac{\partial g}{\partial \tau_\phi}\right|_{0} = 1.
+\]
+
+Por tanto:
+\[
+I_x  \ddot{\phi} = \delta \tau_\phi.
+\]
+Asi nuestro sistema linealizado nos queda de la siguiente manera
+\begin{align*}
+\begin{cases}
+\ddot{z} =\frac{\delta T}{m}\\
+    I_x  \ddot{\phi} = \delta \tau_\phi.
+\end{cases}
+\end{align*}
+donde llamaremos $u_1=\delta T, u_2= \delta \tau_\phi$, para solucionar este sistema de ecuaciones tenemos que ponerlo de primer orden sus ecuaciones diferenciales para eso vamos a introducir nuevas variables
+\begin{align*}
+    x_1=z \\
+    x_2=\dot{z}\\
+    x_3=\phi\\
+    x_4= \dot{\phi}
+\end{align*}
+por lo tanto nos queda el siguiente sistema de ecuaciones diferenciales de primer orden 
+\begin{align*}
+    \begin{cases}
+\dot{x}_1 = x_2 \\
+\dot{x}_2 = \frac{1}{m} u_1 \\
+\dot{x}_3 = x_4 \\
+\dot{x}_4 = \frac{1}{I_z} u_2
+\end{cases}
+\end{align*}
+y lo podemos ver de la siguiente manera $X=Ax+Bu$, dónde
+\begin{align*}
+\underbrace{
+\begin{bmatrix}
+\dot{x}_1 \\
+\dot{x}_2 \\
+\dot{x}_3 \\
+\dot{x}_4
+\end{bmatrix}
+}_{\dot{X}}
+=
+\underbrace{
+\begin{bmatrix}
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0
+\end{bmatrix}
+}_{A}
+\underbrace{
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3 \\
+x_4
+\end{bmatrix}
+}_{X}
++
+\underbrace{
+\begin{bmatrix}
+0 & 0 \\
+\frac{1}{m} & 0 \\
+0 & 0 \\
+0 & \frac{1}{I_z}
+\end{bmatrix}
+}_{B}
+\underbrace{
+\begin{bmatrix}
+u_1 \\
+u_2
+\end{bmatrix}
+}_{u}
+\end{align*}
+Y sabemos como se ven las soluciones de este tipo de ecuaciones diferenciales donde su forma es :
+\[
+x(t) = e^{At} C_1 + \int_0^t e^{A(t-\tau)} B\, u(\tau)\, d\tau
+\]
+Calculemos primero $e^{At}$ y como podemos ver $A$ es nipotente dado que es triangular superior estrictamente con su diagonal de ceros y observe que $e^{At}=I+At+\frac{1}{2}A^2t^2+\dots +\frac{1}{k!}A^kt^k$ y
+\[
+A^2=
+\left(\begin{matrix}
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{matrix}\right)
+\]
+Asi , por lo tanto
+\[
+e^{At} =  \left(\begin{matrix}
+1 & t & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & t \\
+0 & 0 & 0 & 1
+\end{matrix}\right)
+\]
+Ahora veamos la integral
+\[
+x(t) = e^{At} C_1 + \int_0^t e^{A(t-\tau)} B\, u(\tau)\, d\tau
+\]
+dónde 
+\[
+ e^{A(t-\tau)}Bu(\tau)=\left(\begin{matrix}
+1 & t-\tau & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & t-\tau \\
+0 & 0 & 0 & 1
+\end{matrix}\right)
+\left(\begin{matrix}
+    0 & 0 \\
+\frac{1}{m} & 0 \\
+0 & 0 \\
+0 & \frac{1}{I_z}
+\end{matrix}\right)\left(\begin{matrix}
+    u_1\\
+    u_2
+\end{matrix}\right) =\left( \begin{matrix}
+    \frac{t-\tau}{m} & 0 \\
+    \frac{1}{m} & 0 \\
+    0 & \frac{t-\tau}{I_z} \\
+    0 & \frac{1}{I_z}
+\end{matrix}\right)\left(\begin{matrix}
+    u_1\\
+    u_2
+\end{matrix}\right)=\left( \begin{matrix}
+    \frac{t-\tau}{m} u_1 \\
+    \frac{1}{m} u_1 \\
+    \frac{t-\tau}{I_z} u_2 \\
+    \frac{1}{I_z} u_2
+\end{matrix}\right) 
+\]
+Por lo tanto mi  solucion queda como
+
+\[
+\begin{cases}
+x_1(t) = x_1^0 + t\,x_2^0 + \displaystyle \int_{0}^{t} \frac{t-s}{m}\,u_1(s)\,ds \\
+x_2(t) = x_2^0 + \displaystyle \int_{0}^{t} \frac{1}{m}\,u_1(s)\,ds \\
+x_3(t) = x_3^0 + t\,x_4^0 + \displaystyle \int_{0}^{t} \frac{t-s}{I_z}\,u_2(s)\,ds \\
+x_4(t) = x_4^0 + \displaystyle \int_{0}^{t} \frac{1}{I_z}\,u_2(s)\,ds
+\end{cases}
+\]
+El sistema libre sin forzante es cuando $u=0$, por lo tanto el sistema nos queda asi
+\[
+\begin{cases}
+    x_1(t) = x_1^0 + t\,x_2^0 \\
+x_2(t) = x_2^0  \\
+x_3(t) = x_3^0 + t\,x_4^0 \\
+x_4(t) = x_4^0 
+\end{cases}
+\]
+
+\end{document}
