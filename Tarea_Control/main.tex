@@ -204,8 +204,35 @@ B = \begin{bmatrix}
 \]
 por lo tanto la solución del sistema linealizado es
 \begin{align*}
-    \triangle x = e^{At} \triangle x(0) + \int_0^t e^{A(t-s)} B \triangle u(s) ds  
+    x = e^{At} C_1 x(0) + \int_0^t e^{A(t-s)} B  u(s) ds  
 \end{align*}
-
+Calculemos primero lo que esta dentro de la integral, donde $e^A(t-s)$ al ser una matriz nipotente
+es facil encontrar su exponencial, dado que $A^2=0$ entonces tenemos que
+\begin{align*}
+    e^{A(t-s)} = I + A(t-s)
+\end{align*}
+por lo tanto
+\begin{align*}
+    e^{A(t-s)} B = \left(\begin{matrix}
+1 & t-s & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & t-s & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & t-s & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & t-s \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+\end{matrix}\right)
+\left(\begin{matrix}
+0 & 0 & 0 & 0 \\
+\frac{1}{m} & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & \frac{1}{I_x} & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & \frac{1}{I_y} & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & \frac{1}{I_z}
+\end{matrix}\right) 
+\end{align*}
 
 \end{document}
