@@ -1,0 +1,750 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.5)  15 APR 2026 17:56
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"c:/Users/madar/OneDrive/Escritorio/Uni/Apuntes/Control_optimo/Tareas/Tarea 1/main.tex"
+(c:/Users/madar/OneDrive/Escritorio/Uni/Apuntes/Control_optimo/Tareas/Tarea 1/main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(uofa-eng-assignment.cls
+Document Class: uofa-eng-assignment 2022/10/31 University of Alberta engineering assignments
+(C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
+File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count283
+\Gm@cntv=\count284
+\c@Gm@tempcnt=\count285
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
+\Gm@dimlist=\toks18
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count286
+\lst@gtempboxa=\box53
+\lst@token=\toks19
+\lst@length=\count287
+\lst@currlwidth=\dimen157
+\lst@column=\count288
+\lst@pos=\count289
+\lst@lostspace=\dimen158
+\lst@width=\dimen159
+\lst@newlines=\count290
+\lst@lineno=\count291
+\lst@maxwidth=\dimen160
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count292
+\lst@skipnumbers=\count293
+\lst@framebox=\box54
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+)
+\Gin@req@height=\dimen161
+\Gin@req@width=\dimen162
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/fancybox\fancybox.sty
+Package: fancybox 2010/05/15 1.4
+
+Style option: `fancybox' v1.4 <2010/05/15> (tvz)
+\@fancybox=\box55
+\shadowsize=\dimen163
+\@Sbox=\box56
+\do@VerbBox=\toks20
+\the@fancyput=\toks21
+\this@fancyput=\toks22
+\EndVerbatimTokens=\toks23
+\Verbatim@Outfile=\write3
+\Verbatim@Infile=\read2
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks24
+\inpenc@posthook=\toks25
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\epsfig.sty
+Package: epsfig 2024/01/14 v1.7b (e)psfig emulation (SPQR)
+\epsfxsize=\dimen164
+\epsfysize=\dimen165
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
+Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
+\c@tracingmulticols=\count294
+\mult@box=\box57
+\multicol@leftmargin=\dimen166
+\c@unbalance=\count295
+\c@collectmore=\count296
+\doublecol@number=\count297
+\multicoltolerance=\count298
+\multicolpretolerance=\count299
+\full@width=\dimen167
+\page@free=\dimen168
+\premulticols=\dimen169
+\postmulticols=\dimen170
+\multicolsep=\skip51
+\multicolbaselineskip=\skip52
+\partial@page=\box58
+\last@line=\box59
+\mc@boxedresult=\box60
+\maxbalancingoverflow=\dimen171
+\mult@rightbox=\box61
+\mult@grightbox=\box62
+\mult@firstbox=\box63
+\mult@gfirstbox=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\c@minrows=\count300
+\c@columnbadness=\count301
+\c@finalcolumnbadness=\count302
+\last@try=\dimen172
+\multicolovershoot=\dimen173
+\multicolundershoot=\dimen174
+\mult@nat@firstbox=\box101
+\colbreak@box=\box102
+\mc@col@check@num=\count303
+\g__mc_curr_col_int=\count304
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/pst-plot\pst-plot.sty
+Package: pst-plot 2011/06/05 v1.00 LaTeX wrapper for `pst-plot' (HV)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/pstricks\pstricks.sty
+Package: pstricks 2024/02/02 v0.75 LaTeX wrapper for `PSTricks' (RN,HV)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+LaTeX Info: Redefining \color on input line 762.
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\pst-xkey.tex
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks26
+\XKV@tempa@toks=\toks27
+)
+\XKV@depth=\count305
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pstricks.tex (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pst-fp.tex `pst-fp' v0.06, 2020/11/20 (hv)
+\pstFP@xs=\count306
+\pstFP@xia=\count307
+\pstFP@xib=\count308
+\pstFP@xfa=\count309
+\pstFP@xfb=\count310
+\pstFP@rega=\count311
+\pstFP@regb=\count312
+\pstFP@regs=\count313
+\pstFP@times=\count314
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks28
+\pgfutil@tempdima=\dimen175
+\pgfutil@tempdimb=\dimen176
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
+\pgfutil@abb=\box103
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
+)) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks29
+\pgfkeys@temptoks=\toks30
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks31
+))) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex
+\pgf@x=\dimen177
+\pgf@xa=\dimen178
+\pgf@xb=\dimen179
+\pgf@xc=\dimen180
+\pgf@y=\dimen181
+\pgf@ya=\dimen182
+\pgf@yb=\dimen183
+\pgf@yc=\dimen184
+\c@pgf@counta=\count315
+\c@pgf@countb=\count316
+\c@pgf@countc=\count317
+\c@pgf@countd=\count318
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen185
+\pgfmath@count=\count319
+\pgfmath@box=\box104
+\pgfmath@toks=\toks32
+\pgfmath@stack@operand=\toks33
+\pgfmath@stack@operation=\toks34
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count320
+))) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen186
+\pgffor@skip=\dimen187
+\pgffor@stack=\toks35
+\pgffor@toks=\toks36
+))
+\psLoopIndex=\count321
+
+`PSTricks' v3.22A  <2025/12/13> (tvz,hv)
+\pst@dima=\dimen188
+\pst@dimb=\dimen189
+\pst@dimc=\dimen190
+\pst@dimd=\dimen191
+\pst@dimg=\dimen192
+\pst@dimh=\dimen193
+\pst@dimm=\dimen194
+\pst@dimn=\dimen195
+\pst@dimo=\dimen196
+\pst@dimp=\dimen197
+\pst@hbox=\box105
+\pst@ibox=\box106
+\pst@boxg=\box107
+\pst@cnta=\count322
+\pst@cntb=\count323
+\pst@cntc=\count324
+\pst@cntd=\count325
+\pst@cntg=\count326
+\pst@cnth=\count327
+\pst@cntm=\count328
+\pst@cntn=\count329
+\pst@cnto=\count330
+\pst@cntp=\count331
+\@zero=\count332
+\pst@toks=\toks37
+--- We are running latex or xelatex ---
+(C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pstricks.con) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pstricks-color.tex)
+\psunit=\dimen198
+\psxunit=\dimen199
+\psyunit=\dimen256
+\pst@C@@rType=\count333
+\pslinewidth=\dimen257
+\psk@startLW=\dimen258
+\psk@endLW=\dimen259
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pstricks-arrows.tex
+\pshooklength=\dimen260
+\pshookwidth=\dimen261
+)
+\pst@customdefs=\toks38
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pstricks-dots.tex)
+\pslinearc=\dimen262
+\pst@symbolStep=\dimen263
+\pst@symbolWidth=\dimen264
+\pst@symbolLinewidth=\dimen265
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pst-code-grid.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pst-code-box.tex
+\everypsbox=\toks39
+\psframesep=\dimen266
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pst-code-arc.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pst-code-circle_ellipse.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pst-code-ref_rot.tex) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pst-code-put.tex
+\pslabelsep=\dimen267
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pst-code-pspicture.tex
+\sh@wgridXunit=\dimen268
+\sh@wgridYunit=\dimen269
+\pst@shift=\dimen270
+\ps@imagectr=\count334
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pstricks.con))
+File: pstricks.tex 2025/12/13 v3.22A `PSTricks' (tvz,hv)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks\pst-fp.tex `pst-fp' v0.06, 2020/11/20 (hv))
+File: pst-fp.tex 2020/11/20 v0.06 `PST-fp' (hv)
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\pst-xkey.sty
+Package: pst-xkey 2005/11/25 v1.6 package wrapper for pst-xkey.tex (HA)
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/multido\multido.sty
+Package: multido 2004/05/17 package wrapper for PSTricks `multido.tex', (HV/RN)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/multido\multido.tex  v1.42, 2010/05/14 <tvz>
+\multido@count=\count335
+\multidocount=\count336
+\multido@stuff=\toks40
+)
+File: multido.tex 2010/05/14 v1.42 `multido' (tvz,hv)
+)
+Package: pst-plot 2021/09/23 package wrapper for pst-plot.tex (hv)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pst-plot\pst-plot.tex (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pst-tools\pst-tools.tex `PST-tools' v0.12, 2021/09/23 (hv)
+\randomi=\count337
+\ranval=\count338
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pstricks-add\pstricks-add.tex (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pst-node\pst-node.tex  v1.44, 2024/07/04
+\psrow=\count339
+\pscol=\count340
+\psmatrixcnt=\count341
+\psrowsep=\skip53
+\pscolsep=\skip54
+\pst@args=\count342
+\num@pts=\count343
+\pst@argcnt=\count344
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pst-arrow\pst-arrow.tex `pst-arrow' v0.05, 2021/11/16 (dr,hv)) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pst-3d\pst-3d.tex `PST-3d' v1.11, 2010/02/14 (tvz)) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pst-math\pst-math.tex `pst-math' v0.67 , (CJ,hv)) `pstricks-add' v3.94, 2023/04/17 (dr,hv)
+\psparallelogramsep=\dimen271
+\pst@cntC=\count345
+\pst@stepcount=\count346
+\chart@ColorIndex=\dimen272
+\chart@ColorStep=\dimen273
+\pst@chartHeight=\dimen274
+\pst@chartStackDepth=\dimen275
+\pst@chartStackWidth=\dimen276
+\chart@Toggle=\count347
+\psVectorCtr=\count348
+)  v1.94, 2022/11/21 (tvz,hv)
+\pstRadUnit=\dimen277
+\pstRadUnitInv=\dimen278
+\pst@linecnt=\count349
+\RCD@file=\read3
+\psxlabelsep=\dimen279
+\psylabelsep=\dimen280
+\psk@subticksize=\dimen281
+\pst@xticksizeA=\dimen282
+\pst@xticksizeB=\dimen283
+\pst@xticksizeC=\dimen284
+\pst@yticksizeA=\dimen285
+\pst@yticksizeB=\dimen286
+\pst@yticksizeC=\dimen287
+\@digitcounter=\count350
+\psk@llx=\dimen288
+\psk@lly=\dimen289
+\psk@urx=\dimen290
+\psk@ury=\dimen291
+\pst@xunit=\dimen292
+\pst@yunit=\dimen293
+)
+File: pst-plot.tex 2022/11/21 1.94 `pst-plot' (tvz,hv)
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip55
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks41
+\ex@=\dimen294
+)) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen295
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count351
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count352
+\leftroot@=\count353
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count354
+\DOTSCASE@=\count355
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box108
+\strutbox@=\box109
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen296
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count356
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count357
+\dotsspace@=\muskip17
+\c@parentequation=\count358
+\dspbrk@lvl=\count359
+\tag@help=\toks42
+\row@=\count360
+\column@=\count361
+\maxfields@=\count362
+\andhelp@=\toks43
+\eqnshift@=\dimen297
+\alignsep@=\dimen298
+\tagshift@=\dimen299
+\tagwidth@=\dimen300
+\totwidth@=\dimen301
+\lineht@=\dimen302
+\@envbody=\toks44
+\multlinegap=\skip56
+\multlinetaggap=\skip57
+\mathdisplay@stack=\toks45
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\eucal.sty
+Package: eucal 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+)) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen303
+\captionmargin=\dimen304
+\caption@leftmargin=\dimen305
+\caption@rightmargin=\dimen306
+\caption@width=\dimen307
+\caption@indent=\dimen308
+\caption@parindent=\dimen309
+\caption@hangindent=\dimen310
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count363
+\c@continuedfloat=\count364
+Package caption Info: listings package is loaded.
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count365
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count366
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen311
+\Hy@linkcounter=\count367
+\Hy@pagecounter=\count368
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count369
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4201.
+Package hyperref Info: Link nesting OFF on input line 4206.
+Package hyperref Info: Hyper index ON on input line 4209.
+Package hyperref Info: Plain pages OFF on input line 4216.
+Package hyperref Info: Backreferencing OFF on input line 4221.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4468.
+\c@Hy@tempcnt=\count370
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4807.
+\XeTeXLinkMargin=\dimen312
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count371
+\Field@Width=\dimen313
+\Fld@charsize=\dimen314
+Package hyperref Info: Hyper figures OFF on input line 6084.
+Package hyperref Info: Link nesting OFF on input line 6089.
+Package hyperref Info: Hyper index ON on input line 6092.
+Package hyperref Info: backreferencing OFF on input line 6099.
+Package hyperref Info: Link coloring OFF on input line 6104.
+Package hyperref Info: Link coloring with OCG OFF on input line 6109.
+Package hyperref Info: PDF/A mode OFF on input line 6114.
+\Hy@abspage=\count372
+\c@Item=\count373
+\c@Hfootnote=\count374
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
+\Fld@listcount=\count375
+\c@bookmark@seq@number=\count376
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+)
+\Hy@SectionHShift=\skip58
+)
+Package hyperref Info: Option `colorlinks' set `false' on input line 7.
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count377
+) (main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 500.484pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=500.484pt
+* \textheight=681.15898pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-40.36449pt
+* \headheight=0.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count378
+\scratchdimen=\dimen315
+\scratchbox=\box110
+\nofMPsegments=\count379
+\nofMParguments=\count380
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count381
+\MPscratchDim=\dimen316
+\MPnumerator=\count382
+\makeMPintoPDFobject=\count383
+\everyMPtoPDFconversion=\toks47
+) (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+\c@lstlisting=\count384
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring OFF on input line 20.
+ (main.out) (main.out)
+\@outlinefile=\write4
+\openout4 = `main.out'.
+
+<logo.png, id=3, 119.2455pt x 158.0304pt>
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 23.
+(pdftex.def)             Requested size: 42.93925pt x 56.9055pt.
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 23--23
+[][] 
+ []
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
+(C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
+ (C:\Users\madar\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+Non-PDF special ignored!
+<special> header=pstricks.pro
+Non-PDF special ignored!
+<special> header=pst-algparser.pro
+Non-PDF special ignored!
+<special> header=pst-tools.pro
+Non-PDF special ignored!
+<special> header=pst-dots.pro
+Non-PDF special ignored!
+<special> header=pst-node.pro
+Non-PDF special ignored!
+<special> header=pst-3d.pro
+Non-PDF special ignored!
+<special> header=pst-math.pro
+Non-PDF special ignored!
+<special> header=pstricks-add.pro
+
+Non-PDF special ignored!
+<special> ps: /pssetRGBcolor /setrgbcolor load def /pssetCMYKcolor /setcmyk...
+Non-PDF special ignored!
+<special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
+Non-PDF special ignored!
+<special> ps:tx@Dict begin  gsave STV CP T /ps@refangle 0.  def grestore  e...
+Non-PDF special ignored!
+<special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
+{C:/Users/madar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo.png>] [2] [3] [4] [5] [6] [7] [8]
+
+Package caption Warning: Unused \captionsetup[table] on input line 8.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Unused \captionsetup[figure] on input line 9.
+See the caption package documentation for explanation.
+
+[9] (main.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
+Here is how much of TeX's memory you used:
+ 22853 strings out of 467867
+ 390940 string characters out of 5418335
+ 873455 words of memory out of 5000000
+ 51389 multiletter control sequences out of 15000+600000
+ 632984 words of font info for 60 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 105i,15n,117p,946b,548s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/madar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on main.pdf (9 pages, 188645 bytes).
+PDF statistics:
+ 105 PDF objects out of 1000 (max. 8388607)
+ 10 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+

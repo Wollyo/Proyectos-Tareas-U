@@ -1,8 +1,6 @@
 \documentclass{uofa-eng-assignment}
 \usepackage{caption}
 \usepackage{hyperref}
-\usepackage{tcolorbox}
-\usepackage{boxedminipage}
 \hypersetup{
     colorlinks = false,
     linkbordercolor = {white},
@@ -12,256 +10,452 @@
 
 \newcommand{\hpl}{\hyperlink}
 \newcommand{\hpt}{\hypertarget}
-\newcommand*{\name}{Joan Sebastian Ramirez Sanchez}
-\newcommand*{\id}{2223948}
-\newcommand*{\course}{Introducción a la teoría de control}
-\newcommand*{\assignment}[1]{Tarea #1}
+\newcommand*{\name}{Joan Sebastian Ramirez Sanchez  }
+\newcommand*{\id}{202223948}
+\newcommand*{\course}{Control óptimo aplicado a modelos biológicos}
+\newcommand*{\assignment}{Tarea 1 de 3}
 \newcommand*{\dated}{\today}
 \newcommand{\tf}{\textbf}
 
 \begin{document}
 
 \maketitle
-\section{Vehículo Aéreo No Tripulado Cuadricóptero}
-
-\textbf{Contexto y aplicación.} 
-Los cuadricópteros son plataformas de 6 grados de libertad (6-DOF) con fuerte acoplamiento no lineal. Su control preciso es esencial en logística autónoma, inspección de infraestructura y movilidad aérea urbana. Las no linealidades surgen de las transformaciones de orientación mediante ángulos de Euler
-
-\subsection*{Variables del sistema}
-
-\begin{center}
-\begin{tabular}{lll}
-\hline
-\textbf{Símbolo} & \textbf{Unidades} & \textbf{Descripción} \\
-\hline
-$\phi, \theta, \psi$ & rad & Ángulos de Euler (roll, pitch, yaw) \\
-$\Omega_i$ & rad/s & Velocidad angular del rotor $i$ \\
-$k_T$ & N$\cdot$s$^2$ & Constante de empuje \\
-$k_D$ & N$\cdot$m$\cdot$s$^2$ & Constante de par aerodinámico \\
-$I_x, I_y, I_z$ & kg$\cdot$m$^2$ & Momentos de inercia principales \\
-$L$ & m & Distancia del centro al rotor \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection*{Ecuaciones no lineales del sistema}
-
-\begin{tcolorbox}[colback=brown!10!white, colframe=brown!60!black, title=No linealidades principales]
+\begin{enumerate}
+    \item[\textbf{Ejercicio 1.2}] Resolver
+    \[
+    \min_{u} \int_{1}^{2} \left( t u(t)^2 + t^2 x(t) \right) dt
+    \]
+    sujeto a
+    \[
+    x'(t) = -u(t), \qquad x(1) = 1.
+    \]
+\textbf{Solución}
+Haciendo el Hamiltoneando
+\[
+H(x,u, \lambda)= L(x,u)+\lambda f(x,y),
+\]
+reemplazando
 \begin{align*}
-    \ddot{z} &= \frac{T}{m} \cos\phi \cos\theta - g 
-\quad \text{(producto de trigonom.)} \\
-I_x \ddot{\phi} 
-&= \dot{\theta}\dot{\psi}(I_y - I_z) + \tau_\phi
+    H(x,u,\lambda)=  t u(t)^2 + t^2 x(t)-\lambda u(t).
 \end{align*}
-\end{tcolorbox}
-\section{Linealización del sistema}
-Se expande en serie de Taylor hasta primer orden:
-\[
-\ddot{z} = f(T,\phi,\theta) \approx f(T_0,0,0) 
-+ \left.\frac{\partial f}{\partial T}\right|_{0}\,\delta T
-+ \left.\frac{\partial f}{\partial \phi}\right|_{0}\,\delta \phi
-+ \left.\frac{\partial f}{\partial \theta}\right|_{0}\,\delta \theta.
-\]
 
-Cálculo de derivadas:
-\[
-\left.\frac{\partial f}{\partial T}\right|_{0}
-= \frac{1}{m}\cos\phi \cos\theta \Big|_{0}
-= \frac{1}{m},
-\]
-
-\[
-\left.\frac{\partial f}{\partial \phi}\right|_{0}
-= \frac{T}{m}(-\sin\phi \cos\theta)\Big|_{0}
-= 0,
-\]
-
-\[
-\left.\frac{\partial f}{\partial \theta}\right|_{0}
-= \frac{T}{m}(\cos\phi (-\sin\theta))\Big|_{0}
-= 0.
-\]
-por lo tanto tenemos que 
-\[
-\ddot{z} \approx  \frac{\delta T}{m}
-\]
-con la segunda ecuacion tenemos 
-\[
-g(\dot{\theta}, \psi, \tau_\phi) = \dot{\theta}\psi (I_y - I_z) + \tau_\phi.
-\]
-En el equilibrio, \(\dot{\theta}_0 = 0\), \(\psi_0 = 0\), \(\tau_{\phi 0} = 0\). Expandimos:
-\[
-I_x \,\ddot{\phi} =
-\left.\frac{\partial g}{\partial \dot{\theta}}\right|_{0}\,\delta \dot{\theta}
-+ \left.\frac{\partial g}{\partial \psi}\right|_{0}\,\delta \psi
-+ \left.\frac{\partial g}{\partial \tau_\phi}\right|_{0}\,\delta \tau_\phi.
-\]
-
-Derivadas:
-\[
-\frac{\partial g}{\partial \dot{\theta}} = \psi (I_y - I_z)
-\;\;\Rightarrow\;\;
-\left.\frac{\partial g}{\partial \dot{\theta}}\right|_{0} = 0,
-\]
-
-\[
-\frac{\partial g}{\partial \psi} = \dot{\theta} (I_y - I_z)
-\;\;\Rightarrow\;\;
-\left.\frac{\partial g}{\partial \psi}\right|_{0} = 0,
-\]
-
-\[
-\frac{\partial g}{\partial \tau_\phi} = 1
-\;\;\Rightarrow\;\;
-\left.\frac{\partial g}{\partial \tau_\phi}\right|_{0} = 1.
-\]
-
-Por tanto:
-\[
-I_x  \ddot{\phi} = \delta \tau_\phi.
-\]
-Asi nuestro sistema linealizado nos queda de la siguiente manera
+Aplicando la condición de optimalidad
 \begin{align*}
+     \frac{\partial H}{\partial u}&=0, \quad \text{reemplazando}\\
+     \frac{\partial H}{\partial u}&=2tu(t)-\lambda=0,
+\end{align*}
+por lo tanto tenemos que  $u^*(t)=\frac{\lambda}{2t}$ y la ecuación adjunta esta dada por $\lambda '(t)= - \frac{\partial H}{\partial x}$, entonces
+\[
+\lambda'(t)= - \frac{\partial H}{\partial x}=-t^2.
+\]
+Haciendo la sustitución de $u^*(t)$ en la ecuación de estado tenemos que:
+\[
+ x'(t) =-\frac{\lambda}{2t}
+\]
+por consiguiente nos queda el siguiente sistema 
+\[
 \begin{cases}
-\ddot{z} =\frac{\delta T}{m}\\
-    I_x  \ddot{\phi} = \delta \tau_\phi.
+x'(t) = -\dfrac{\lambda(t)}{2t}, \\
+\lambda'(t) = -t^2.
 \end{cases}
-\end{align*}
-donde llamaremos $u_1=\delta T, u_2= \delta \tau_\phi$, para solucionar este sistema de ecuaciones tenemos que ponerlo de primer orden sus ecuaciones diferenciales para eso vamos a introducir nuevas variables
+\]
+comenzamos integrando la segunda ecuación
+\[
+ \lambda'(t)=-t^2 \Rightarrow \lambda(t) = -   \frac{t^3}{3}+C.
+\]
+Y dado que el estado final es libre podemos tomar  $\lambda(2)=0$, entonces nos queda lo siguiente 
+\[
+0=\frac{2^3}{3}+C \Rightarrow C = \frac{8}{3}
+\]
+por lo tanto
+\[
+ \lambda(t)= \frac{8-t^3}{3}
+\]
+remplazando en la primera ecuación.
 \begin{align*}
-    x_1=z \\
-    x_2=\dot{z}\\
-    x_3=\phi\\
-    x_4= \dot{\phi}
+        x'(t) &= -\frac{1}{2t} \frac{8-t^3}{3}= -\frac{8-t^3}{6t}, \quad \text{Integrando} \\
+    x(t) &= - \int  \frac{8}{6t}dt+\int \frac{t^2}{6}dt+C \\
+    x(t)&= -\frac{4}{3}\ln (t)+\frac{t^3}{18}+C
 \end{align*}
-por lo tanto nos queda el siguiente sistema de ecuaciones diferenciales de primer orden 
+Usammos $x(1)=1:$
+\[
+1=0+\frac{1}{18}+C \Rightarrow C=\frac{17}{18}
+\]
+Por lo tanto nuestro control óptimo será:
+\[
+ u^*(t)= \frac{\lambda(t)}{2t}= \frac{8-t^3}{6t}
+\]
+    \item[\textbf{Ejercicio 1.3}] Resolver
+    \[
+    \max_{u} \int_{1}^{5} \left( u(t)x(t) - u(t)^2 - x(t)^2 \right) dt
+    \]
+    sujeto a
+    \[
+    x'(t) = x(t) + u(t), \qquad x(1) = 2.
+    \]
+
+\textbf{Solucion}
+Haciendo el Hamiltoneano
+\[
+H(x,u, \lambda)= L(x,u)+\lambda f(x,y),
+\]
+reemplazando
 \begin{align*}
-    \begin{cases}
-\dot{x}_1 = x_2 \\
-\dot{x}_2 = \frac{1}{m} u_1 \\
-\dot{x}_3 = x_4 \\
-\dot{x}_4 = \frac{1}{I_z} u_2
-\end{cases}
+    H(x,u,\lambda)= ux-u^2-x^2+\lambda(x+u)
 \end{align*}
-y lo podemos ver de la siguiente manera $X=Ax+Bu$, dónde
+Condicion de optimalidad
 \begin{align*}
-\underbrace{
-\begin{bmatrix}
-\dot{x}_1 \\
-\dot{x}_2 \\
-\dot{x}_3 \\
-\dot{x}_4
-\end{bmatrix}
-}_{\dot{X}}
+     \frac{\partial H}{\partial u}&=x-2u+\lambda=0 \Rightarrow u^*=\frac{x+\lambda}{2}.
+\end{align*}
+Verifiquemos que es un máximo:
+\[
+ \frac{\partial^2 H}{\partial u^2}=-2 < 0 \Rightarrow \text{máximo.}
+\]
+la ecuacion adjunta esta dada por
+\[
+\lambda '(t)= \frac{\partial H}{\partial x}= -(u-2x+\lambda)= -u+2x-\lambda
+\]
+Sustituyendo $u^*$
+\[
+\lambda' = \frac{-x-\lambda}{2}+2x-\lambda=\frac{3}{2}x -\frac{3}{2}\lambda
+\]
+por lo tanto nuestra ecuación de estado nos queda lo siguiente
+\[
+x'=x+u^*=x+\frac{x+\lambda}{2}=\frac{3}{2}x+\frac{1}{2}\lambda
+\]
+Por lo tanto nos queda el siguiente sistema lineal
+\begin{align*}
+\begin{pmatrix}
+x \\
+\lambda
+\end{pmatrix}'
 =
-\underbrace{
-\begin{bmatrix}
-0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 1 \\
-0 & 0 & 0 & 0
-\end{bmatrix}
-}_{A}
-\underbrace{
-\begin{bmatrix}
-x_1 \\
-x_2 \\
-x_3 \\
-x_4
-\end{bmatrix}
-}_{X}
-+
-\underbrace{
-\begin{bmatrix}
-0 & 0 \\
-\frac{1}{m} & 0 \\
-0 & 0 \\
-0 & \frac{1}{I_z}
-\end{bmatrix}
-}_{B}
-\underbrace{
-\begin{bmatrix}
-u_1 \\
-u_2
-\end{bmatrix}
-}_{u}
+\begin{pmatrix}
+\frac{3}{2} & \frac{1}{2} \\
+\frac{3}{2} & -\frac{3}{2}
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+\lambda
+\end{pmatrix}
 \end{align*}
-Y sabemos como se ven las soluciones de este tipo de ecuaciones diferenciales donde su forma es :
-\[
-x(t) = e^{At} C_1 + \int_0^t e^{A(t-\tau)} B\, u(\tau)\, d\tau
-\]
-Calculemos primero $e^{At}$ y como podemos ver $A$ es nipotente dado que es triangular superior estrictamente con su diagonal de ceros y observe que $e^{At}=I+At+\frac{1}{2}A^2t^2+\dots +\frac{1}{k!}A^kt^k$ y
-\[
-A^2=
-\left(\begin{matrix}
-0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0
-\end{matrix}\right)
-\]
-Asi , por lo tanto
-\[
-e^{At} =  \left(\begin{matrix}
-1 & t & 0 & 0 \\
-0 & 1 & 0 & 0 \\
-0 & 0 & 1 & t \\
-0 & 0 & 0 & 1
-\end{matrix}\right)
-\]
-Ahora veamos la integral
-\[
-x(t) = e^{At} C_1 + \int_0^t e^{A(t-\tau)} B\, u(\tau)\, d\tau
-\]
-dónde 
-\[
- e^{A(t-\tau)}Bu(\tau)=\left(\begin{matrix}
-1 & t-\tau & 0 & 0 \\
-0 & 1 & 0 & 0 \\
-0 & 0 & 1 & t-\tau \\
-0 & 0 & 0 & 1
-\end{matrix}\right)
-\left(\begin{matrix}
-    0 & 0 \\
-\frac{1}{m} & 0 \\
-0 & 0 \\
-0 & \frac{1}{I_z}
-\end{matrix}\right)\left(\begin{matrix}
-    u_1\\
-    u_2
-\end{matrix}\right) =\left( \begin{matrix}
-    \frac{t-\tau}{m} & 0 \\
-    \frac{1}{m} & 0 \\
-    0 & \frac{t-\tau}{I_z} \\
-    0 & \frac{1}{I_z}
-\end{matrix}\right)\left(\begin{matrix}
-    u_1\\
-    u_2
-\end{matrix}\right)=\left( \begin{matrix}
-    \frac{t-\tau}{m} u_1 \\
-    \frac{1}{m} u_1 \\
-    \frac{t-\tau}{I_z} u_2 \\
-    \frac{1}{I_z} u_2
-\end{matrix}\right) 
-\]
-Por lo tanto mi  solucion queda como
-
+Dado que este es el primer ejercicio pondre los pasos sin extenderme para tener una idea del procedimiento pero en futuros ejercicios ira directamente la solucion del sistema, dicho una vez esto procederemos a sacar los valores propios de la matriz que son $\mu_1 = \sqrt{3}$, $\mu_2 = -\sqrt{3}$ cuyos valores propios son:
+\begin{align*}
+  v_1=  \left(\begin{matrix}
+1-\frac{2}{\sqrt{3}} \\1
+\end{matrix} 
+\right)   \quad                             &\text{para } -\sqrt{3}\\
+\quad v_2=  \left(\begin{matrix}
+1+\frac{2}{\sqrt{3}} \\1
+\end{matrix}\right)                     \quad &\text{para }\sqrt{3}
+\end{align*}
+% \begin{align*}
+%     v_1= \begin{pmatrix}
+%         1 \\
+%         2\sqrt{3}-3
+%     \end{pmatrix}
+%     \quad &\text{para }\sqrt{3} \\
+%     v_2= \begin{pmatrix}
+%         1 \\
+%         -3-2\sqrt{3}
+%     \end{pmatrix} \quad &\text{para }-\sqrt{3}
+% \end{align*}
+Como los valores propios son reales y distintos, la solución general es combinación lineal de las soluciones fundamentales  $\sum _{i=1}^n e^{\mu_i t}v_i $
+\begin{equation*}
+\begin{pmatrix}
+x(t) \\
+\lambda(t)
+\end{pmatrix}
+= c_1 e^{-\sqrt{3}t}   \begin{pmatrix}
+1-\frac{2}{\sqrt{3}} \\1
+\end{pmatrix}  + c_2 e^{\sqrt{3}t} \begin{pmatrix}
+1+\frac{2}{\sqrt{3}} \\1
+\end{pmatrix}
+\end{equation*}
+donde \( c_1 \) y \( c_2 \) son constantes arbitrarias determinadas por condiciones iniciales.
 \[
 \begin{cases}
-x_1(t) = x_1^0 + t\,x_2^0 + \displaystyle \int_{0}^{t} \frac{t-s}{m}\,u_1(s)\,ds \\
-x_2(t) = x_2^0 + \displaystyle \int_{0}^{t} \frac{1}{m}\,u_1(s)\,ds \\
-x_3(t) = x_3^0 + t\,x_4^0 + \displaystyle \int_{0}^{t} \frac{t-s}{I_z}\,u_2(s)\,ds \\
-x_4(t) = x_4^0 + \displaystyle \int_{0}^{t} \frac{1}{I_z}\,u_2(s)\,ds
+x(t)=c_1 e^{-\sqrt{3}t}\left(1-\frac{2}{\sqrt{3}}\right)
++ c_2 e^{\sqrt{3}t}\left(1+\frac{2}{\sqrt{3}}\right) \\[6pt]
+\lambda(t)=c_1 e^{-\sqrt{3}t}+c_2 e^{\sqrt{3}t}
 \end{cases}
 \]
-El sistema libre sin forzante es cuando $u=0$, por lo tanto el sistema nos queda asi
+Usando el hecho que $\lambda(5)=0$, tenemos que
+\[
+\lambda(5)=c_1 e^{-5\sqrt{3}}+c_2 e^{5\sqrt{3}}=0 \to c_1=-c_2 e^{10\sqrt{3}}
+\]
+y ahora usamos $x(1)=2$
+\[
+x(1)=c_1 e^{-\sqrt{3}}\left(1-\frac{2}{\sqrt{3}}\right)
++ c_2 e^{\sqrt{3}}\left(1+\frac{2}{\sqrt{3}}\right)
+\]
+sustituimos $c_1$
+\begin{align*}
+    (-c_2 e^{10\sqrt{3}})e^{-\sqrt{3}}\left(1-\frac{2}{\sqrt{3}}\right)
++ c_2 e^{\sqrt{3}t}\left(1+\frac{2}{\sqrt{3}}\right) =2
+\end{align*}
+
+\[
+c_2[(- e^{10\sqrt{3}})e^{-\sqrt{3}}\left(1-\frac{2}{\sqrt{3}}\right)
++  e^{\sqrt{3}}\left(1+\frac{2}{\sqrt{3}}\right)]=2
+\]
+\[
+c_2= \frac{2}{(- e^{10\sqrt{3}})e^{-\sqrt{3}}\left(1-\frac{2}{\sqrt{3}}\right)
++  e^{\sqrt{3}}\left(1+\frac{2}{\sqrt{3}}\right)}
+\]
+dado que las constantes nos han dado un poco largas vamos a escribirlas sin la expresión completa por lo tanto nuestro problema de control optimo queda así
+\begin{align*}
+    x^*&=c_1 e^{-\sqrt{3}t}\left(1-\frac{2}{\sqrt{3}}\right)+ c_2 e^{\sqrt{3}t}\left(1+\frac{2}{\sqrt{3}}\right)\\
+    u^*&=\frac{x+\lambda}{2}.
+\end{align*}
+\item [\textbf{Ejercicio 2.3}] Considere
+    \[
+    \max_u \int_{t_0}^{t_1} \left( u(t)x(t) - u(t)^2 - x(t)^2 \right) \, dt
+    \]
+    sujeto a 
+    \[
+    x'(t) = x(t) + u(t), \quad x(t_0) = x_0.
+    \]
+    Note que el caso $t_0 = 1$, $t_1 = 5$, $x_0 = 2$ es el Ejercicio 1.3. Resuelva el problema para $t_0 = 1$, $t_1 = 3$, $x_0 = 2$ y note que los resultados no coinciden con los resultados del Ejercicio 1.3 en el intervalo $[1,3]$. Para $t_0 = 3$ y $t_1 = 5$, ¿qué valor de $x_0$ garantiza el Principio de Optimalidad que esté de acuerdo con las soluciones del Ejercicio 1.3 en $[3,5]$?\\
+\textbf{Solución}\\
+Dado que el problema unicamente cambia en las condiciones iniciales podemos traar del ejercicio 1.3 lo siguiente
 \[
 \begin{cases}
-    x_1(t) = x_1^0 + t\,x_2^0 \\
-x_2(t) = x_2^0  \\
-x_3(t) = x_3^0 + t\,x_4^0 \\
-x_4(t) = x_4^0 
+x(t)=c_1 e^{-\sqrt{3}t}\left(1-\frac{2}{\sqrt{3}}\right)
++ c_2 e^{\sqrt{3}t}\left(1+\frac{2}{\sqrt{3}}\right) \\[6pt]
+\lambda(t)=c_1 e^{-\sqrt{3}t}+c_2 e^{\sqrt{3}t}
 \end{cases}
 \]
+Dado que nuevamente $t_1=3$ queda libre, tomemos $\lambda(3)=0$
+\begin{align*}
+\lambda(3)&=c_1 e^{-3\sqrt{3}}+c_2 e^{3\sqrt{3}}=0\\
+c_1 &=-c_2 e^{6\sqrt{3}}
+\end{align*}
+y usando $x(1)=2$
+\begin{align*}
+    x(1)=c_1 e^{-\sqrt{3}}\left(1-\frac{2}{\sqrt{3}}\right)
++ c_2 e^{\sqrt{3}}\left(1+\frac{2}{\sqrt{3}}\right) =2,\\
+(-c_2 e^{6\sqrt{3}})e^{-\sqrt{3}}\left(1-\frac{2}{\sqrt{3}}\right)
++ c_2 e^{\sqrt{3}}\left(1+\frac{2}{\sqrt{3}}\right)=2 ,\\
+c_2= \frac{2}{-e^{6\sqrt{3}}e^{-\sqrt{3}}\left(1-\frac{2}{\sqrt{3}}\right)
++  e^{\sqrt{3}}\left(1+\frac{2}{\sqrt{3}}\right)}.
+\end{align*}
+Dónde se aprecia ver que los $c_i$ son diferentes a los del ejercicio 1.3, ahora si tomamos $t_0=3$ y $t_1=5$, tendríamos que buscar un $x_0$ que nos de el principio de optimalidad, recordemos que el Principio de Optimalidad de Bellman establece que cualquier subtrayectoria final de una trayectoria óptima es, a su vez, óptima para el subproblema que comienza en ese estado intermedio. osea que para que "funcione" basta con tomar la solución optima de el ejercicio 1.3 detonada como $x_{1.3}^*$, por lo tanto $x_{1.3}^*(3)=x(3)$ para garantizar el teorema
 
+\item[\textbf{Ejercicio 3.4}] Enuncie y demuestre las condiciones necesarias para el problema
+\[
+\max_{u} \int_{t_0}^{t_1} f(t,x(t),u(t))\,dt + \phi(x(t_0))
+\]
+sujeto a
+\[
+x'(t) = g(t,x(t),u(t)), \qquad x(t_1) = x_1.
+\]
+\textbf{Solución} \\
+Sea el funcional 
+\[
+J(u)=\int_{t_0}^{t_1} f(t,x(t),u(t))\,dt + \phi(x(t_0))
+\]
+Definimos un control perturbado $u^\varepsilon=u^*+\varepsilon h$, dónde $u^*$ es el control + óptimo,$\epsilon$ es un parámetro pequeño y $h(t)$ es una variación arbitraria. Esto genera una trayectoria de estado perturbada $x^\epsilon$.
+Dado que la condición final está fija ($x(t_1) = x_1$), la variación del estado en ese punto es cero:$$\left. \frac{dx^\epsilon}{d\epsilon} (t_1) \right|_{\epsilon=0} = 0$$Sin embargo, el estado inicial es libre, por lo que $\frac{dx^\epsilon}{d\epsilon}(t_0)$ es arbitrario.
+Buscamos el extremo evaluando el límite de la variación:$$0 = \lim_{\epsilon \to 0} \frac{J(u^\epsilon) - J(u^*)}{\epsilon} = \left. \frac{d J(u^\epsilon)}{d\epsilon} \right|_{\epsilon=0}$$Aplicando la regla de la cadena al funcional:$$0 = \int_{t_0}^{t_1} \left[ f_x \left. \frac{dx^\epsilon}{d\epsilon} \right|_{\epsilon=0} + f_u h \right] dt + \phi'(x(t_0)) \left. \frac{dx^\epsilon}{d\epsilon} (t_0) \right|_{\epsilon=0}$$
+Sabemos que $(x^\epsilon)' = g(t, x^\epsilon, u^\epsilon)$. Si derivamos esta ecuación respecto a $\epsilon$ y evaluamos en $\epsilon=0$, obtenemos:$$\frac{d}{dt} \left( \frac{dx^\epsilon}{d\epsilon} \right) = g_x \frac{dx^\epsilon}{d\epsilon} + g_u h$$Podemos multiplicar esto por una variable adjunta arbitraria $\lambda(t)$, integrarlo y pasarlo todo a un lado para formar un "cero":$$0 = \int_{t_0}^{t_1} \lambda(t) \left[ g_x \frac{dx^\epsilon}{d\epsilon} + g_u h - \frac{d}{dt} \left( \frac{dx^\epsilon}{d\epsilon} \right) \right] dt$$Sumamos este "cero" a nuestra ecuación de la derivada del funcional:$$0 = \int_{t_0}^{t_1} \left[ (f_x + \lambda g_x) \frac{dx^\epsilon}{d\epsilon} + (f_u + \lambda g_u) h - \lambda \frac{d}{dt} \left( \frac{dx^\epsilon}{d\epsilon} \right) \right] dt + \phi'(x(t_0)) \frac{dx^\epsilon}{d\epsilon} (t_0)$$
+Aplicamos integración por partes al último término de la integral:$$-\int_{t_0}^{t_1} \lambda(t) \frac{d}{dt} \left( \frac{dx^\epsilon}{d\epsilon} \right) dt = -\left[ \lambda(t) \frac{dx^\epsilon}{d\epsilon} \right]_{t_0}^{t_1} + \int_{t_0}^{t_1} \lambda'(t) \frac{dx^\epsilon}{d\epsilon} dt$$Evaluando los límites:$$= -\lambda(t_1)\frac{dx^\epsilon}{d\epsilon}(t_1) + \lambda(t_0)\frac{dx^\epsilon}{d\epsilon}(t_0) + \int_{t_0}^{t_1} \lambda'(t) \frac{dx^\epsilon}{d\epsilon} dt$$Como vimos en el Paso 1, $\frac{dx^\epsilon}{d\epsilon}(t_1) = 0$, así que el término con $\lambda(t_1)$ desaparece.(\textbf{Mismo procedimiento de las paginas 10 y 11 del libro guia})
+Sustituimos el resultado de la integración por partes de vuelta en la ecuación principal y agrupamos de manera análoga a la imagen:$$0 = \int_{t_0}^{t_1} \left[ (f_x + \lambda g_x + \lambda') \left. \frac{dx^\epsilon}{d\epsilon} \right|_{\epsilon=0} + (f_u + \lambda g_u)h \right] dt + \left( \phi'(x(t_0)) + \lambda(t_0) \right) \left. \frac{dx^\epsilon}{d\epsilon} (t_0) \right|_{\epsilon=0}$$
+Entonces, si escogemos que la variable adjunta $\lambda$ satisfaga la ecuación adjunta:$$\lambda'(t) = -\left( f_x(t, x^*, u^*) + \lambda(t) g_x(t, x^*, u^*) \right)$$y la condición de transversalidad en $t_0$:$$\lambda(t_0) = -\phi'(x(t_0))$$
+entonces la ecuación colapsa a:$$0 = \int_{t_0}^{t_1} (f_u + \lambda g_u) h \, dt$$Y como esto debe cumplirse para cualquier variación arbitraria $h(t)$, llegamos a la condición de optimalidad:$$f_u + \lambda g_u = 0$$
+\item[\textbf{Ejercicio 3.5}] Considere el problema
+\[
+\min_{u} \frac{1}{4}\int_0^1 u(t)^4\,dt
+\]
+sujeto a
+\[
+x'(t) = x(t) + u(t), \qquad x(0) = x_0, \qquad x(1) = 0.
+\]
+
+
+Demuestre que el control óptimo es
+\[
+u^*(t) = \frac{4x_0}{3\left(e^{-4/3}-1\right)}e^{-t/3}.
+\]
+\
+\textbf{Solución}.\\
+Tenemos que el Hamiltoneao es 
+\[
+H=\frac{u^4}{4}+\lambda (x+u)
+\]
+y ademas las siguientes condiciones:
+\begin{align*}
+    \frac{\partial H}{\partial U} &= u^3+\lambda=0 \to u = \sqrt{\lambda} \\
+    \lambda' &= -\frac{\partial H}{\partial x}=-\lambda
+\end{align*}
+De estas ecuaciones llegamos a que 
+\begin{align*}
+    \lambda &= c_1e^-t \\
+    u&= C_1e^{-t/3}
+\end{align*}
+Reemplazando en nuestra ecuación sujeta
+\[
+ x'(t) = x(t) + C_1e^{-t/3},
+\]
+La solución nos queda como
+\[
+x(t)=C_2 e^t- \frac{3}{4}C_1e^{-t/3}
+\]
+Aplicamos las condiciones de frontera
+\begin{align*}
+x(0)=x_0=C_2-\frac{3}{4}C_1 \\
+C_2=x_0+\frac{3}{4}C_1 
+\end{align*}
+y ahora para $x(1)=0$
+\begin{align*}
+    0&=(x_0+\frac{3}{4}C_1)e -\frac{3}{4}C_1 e^{-1/3}, \quad \text{multiplicamos por 4}\\
+    0&=4ex_0+3eC_1-3C_1e^{-1/3} \\
+    3&C_1(e-e^{-1/3})=-4ex_0 \\
+    C&_1=\frac{-4ex_0}{3(e-e^{-1/3})}
+\end{align*}
+Por lo tanto nos queda lo siguiente
+\begin{align*}
+    x(t)&=x_0+\frac{9}{4}{(e-e^{-1/3})}e^t+\frac{ex_0}{(e-e^{-1/3})}e^{-t/3} \\
+    u(t)&=    \frac{-4ex_0}{3(e-e^{-1/3})} e^{-t/3}
+\end{align*}
+Y para que el control nos quede igual que el enunciado sacamos factor común $e^{-1/3}$ y luego dividimos arriba y abajo por $e^\frac{4}{3}$
+\begin{align*}
+    u(t)=    u(t)&=    \frac{-4ex_0}{3e^{-1/3}(e^{4/3}-1)} e^{-t/3}\\
+   &=  \frac{-4e^{4/3}x_0}{3(e^{4/3}-1)} e^{-t/3} \\
+   &= \frac{-4x_0}{1-3(e^{-4/3})} e^{-t/3}
+\end{align*}
+\item[\textbf{Ejercicio 3.6}] Demuestre que no puede existir un control óptimo para
+\[
+\max_{u} \int_{0}^{1} u(t)\,dt
+\]
+sujeto a
+\[
+x'(t) = x(t) + t\,u(t)^2, \quad x(0) = 1, \quad x(1) = 0.
+\]
+\textbf{Solución} \\
+Consideremos el sistema
+\[
+x'(t)=x(t)+t\,u(t)^2,\quad x(0)=1,\quad x(1)=0.
+\]
+
+Observamos que para todo \(t \in [0,1]\) se tiene:
+\[
+u(t)^2 \ge 0 \quad \text{y} \quad t \ge 0,
+\]
+por lo tanto,
+\[
+t\,u(t)^2 \ge 0.
+\]
+
+De aquí se sigue que:
+\[
+x'(t)=x(t)+t\,u(t)^2 \ge x(t).
+\]
+
+Sea \(y(t)\) la solución del problema
+\[
+y'(t)=y(t), \quad y(0)=1,
+\]
+cuyo resultado es:
+\[
+y(t)=e^t.
+\]
+
+Por el principio de comparación, como
+\[
+x'(t) \ge y'(t) \quad \text{y} \quad x(0)=y(0),
+\]
+se concluye que:
+\[
+x(t) \ge y(t)=e^t \quad \text{para todo } t \in [0,1].
+\]
+
+En particular,
+\[
+x(1) \ge e > 0,
+\]
+lo cual contradice la condición de frontera \(x(1)=0\). Por lo tanto, no existe ninguna función de control \(u(t)\) tal que el sistema satisfaga las condiciones dadas. En consecuencia, el conjunto de controles admisibles es vacío y no puede existir un control óptimo.
+\item[\textbf{Ejercicio 3.9}]  Se desea calentar una habitación hasta una temperatura deseada $D$ en un intervalo de tiempo fijo $[0,T]$. Sea $x(t)$ la temperatura en la habitación y $u(t)$ la tasa de suministro de calor. La temperatura está gobernada por
+\[
+x'(t) = -a(x(t) - D) + b\,u(t).
+\]
+Si la temperatura inicial es $0$ grados ($x(0) = 0$), determine el programa de calentamiento $u(t)$ (que alcance la temperatura deseada $x(T) = D$) minimizando la energía utilizada. Aquí el índice de desempeño es
+\[
+\frac{1}{2} \int_{0}^{T} u(t)^2\,dt.
+\]
+\textbf{Solución.}
+Primero traduzcamos el enunciado a un problema de control optimo minimizar el funcional de costo:
+\[
+J(u)=\frac{1}{2}\int_0^T u(t)^2\,dt
+\]
+
+sujeto a la dinámica:
+\[
+x'(t) = -a(x(t)-D) + b\,u(t), \quad t \in [0,T],
+\]
+
+con condiciones de frontera:
+\[
+x(0)=0, \quad x(T)=D.
+\]
+El hamiltoneano es
+\[
+H(x,u,\lambda)=\frac{1}{2}u^2+\lambda(a(x-D)+bu)
+\]
+Condición de optimalidad
+\[
+\frac{\partial H}{\partial u}=u+\lambda b=0
+\]
+La otra condición será
+\[
+\lambda'(t)=-\frac{\partial H}{\partial x}=\lambda a
+\]
+Asi tenemos que
+\[
+\lambda(t)= c_1 e^{at}
+\]
+Por lo tanto $u=-\lambda b$, sustiyendo en la ecuacion diferencial
+\begin{align*}
+x'(t) = -a(x(t)-D) -\lambda b^2\, \quad t \in [0,T], \\
+x'(t) = -a(x(t)-D) -C_1 e^{at}b^2\, \quad t \in [0,T]
+\end{align*}
+\[
+x'(t) + a x(t) = aD - b^2 C e^{at}
+\]
+factor integrante $e^{at}$:
+\[
+\frac{d}{dt}\left(e^{at} x\right) = aD e^{at} - b^2 C e^{2at}
+\]
+Integramos:
+\[
+e^{at} x(t) = D e^{at} - \frac{b^2 C}{2a} e^{2at} + K
+\]
+ Despejar $x(t)$
+\[
+x(t) = D - \frac{b^2 C}{2a} e^{at} + K e^{-at}
+\]
+Ahora usamos las condiciones iniciales en  $t = 0$: 
+\begin{align*}
+0 &= D - \frac{b^2 C}{2a} + K \\
+K &= \frac{b^2 C}{2a} - D
+\end{align*}
+Ahora en $t=T$
+\begin{align*}
+D &= D - \frac{b^2 C}{2a} e^{aT} 
+    + \left( \frac{b^2 C}{2a} - D \right) e^{-aT}
+\end{align*}
+\text{De donde se obtiene:}
+\begin{align*}
+C &= -\frac{2aD}{b^2} \cdot \frac{1}{e^{-aT} - e^{aT}}
+\end{align*}
+Por lo tanto nos queda el siguiente control optimo
+\begin{align*}
+u^*(t) &= -bC e^{at}, \\
+C &= \frac{2aD}{b^2 \left(e^{-aT} - e^{aT}\right)}
+\end{align*}
+Con trayectoria
+\[
+x(t) = D - \frac{b^2 C}{2a} e^{at} + \left( \frac{b^2 C}{2a} - D \right) e^{-at}
+\]
+\end{enumerate}
 \end{document}
