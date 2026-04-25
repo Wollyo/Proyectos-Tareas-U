@@ -13,7 +13,7 @@
 \newcommand*{\name}{Joan Sebastian Ramirez Sanchez  }
 \newcommand*{\id}{202223948}
 \newcommand*{\course}{Control óptimo aplicado a modelos biológicos}
-\newcommand*{\assignment}{Tarea 1 de 3}
+\newcommand*{\assignment}{Tarea 2 de 3}
 \newcommand*{\dated}{\today}
 \newcommand{\tf}{\textbf}
 
@@ -35,13 +35,13 @@ Como vimos en estas secciones, el problema de este ejercicio radica en la fronte
 que tiene nuestro control, es decir, el hecho de que 
 $u(t)$ debe estar entre $0$ y $1$. Para resolver este problema, primero encontramos la función Hamiltoniana de nuestro sistema, que es
 \[H(x, u, \lambda) = x - u + 2\lambda u(1 - u).\]
-Luego, encontramos la función de costo$\lambda(t)$, que es
+Luego, encontramos la función de costo $\lambda(t)$, que es
 \[\lambda'(t) = -\frac{\partial H}{\partial x} = -1 \implies \lambda(t) = -t + C.\]
 dado que no tenemos condiciones para $x(1)$, podemos hacer que $\lambda(1) = 0$, lo que nos da $C = 1$. Entonces, $\lambda(t) = -t + 1$.
 Ahora maximizamos $H$ con respecto a $u$, lo que nos da
 \[ H(u) = x-u + 2\lambda u(1 - u) = x - u + 2(-t + 1)u(1 - u) = x - u + 2(-t + 1)(u - u^2).\]
 Derivando con respecto a $u$
-\[\frac{\partial H}{du} = -1 + 2(-t + 1)(1 - 2u) = -1 + 2(-t + 1) - 4(-t + 1)u = (1-2t) -4u(1-t).\]
+\[\frac{\partial H}{\partial u} = -1 + 2(-t + 1)(1 - 2u) = -1 + 2(-t + 1) - 4(-t + 1)u = (1-2t) -4u(1-t).\]
 Analicemos en los extremos de $u$ para encontrar el máximo.
  \begin{align*}
     \frac{\partial H}{\partial u} <0 &\implies u =0, \implies  (1-2t) < 0, \implies t > \frac{1}{2},
@@ -192,7 +192,7 @@ x'(t) = x(t) + u(t), \quad x(0) = x_0.
 Vamos a identificar el problema como un problema LQR, para esto identificamos $A$, $B$, $Q$ y $R$:
 \[A = 1, \quad B = 1, \quad Q = 3, \quad R = 1.\]
 Ahora, la ecuación de Riccati es
-\[-S' = 2S-S^2+3 , \quad S(T) = 3.\]
+\[-S' = 2S-S^2+3 , \quad S(T) = 0.\]
 organizando la ecuación de Riccati, tenemos
 \[S' = (S-3)(S+1), \quad S(T) = 0.\]
 Separar variables:
@@ -302,5 +302,5 @@ sustituyendo $x_2(1) = 0$:
 \frac{-3A}{2}+c_3=0 \implies c_3 =\frac{3A}{2}
 \]
 por lo tanto, el control óptimo es
-\[u^*(t) = -\lambda_2 = 3A t.\]
+\[u^*(t) = -\lambda_2 = -3A t.\]
 \end{document}
