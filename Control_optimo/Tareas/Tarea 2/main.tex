@@ -37,14 +37,67 @@ $u(t)$ debe estar entre $0$ y $1$. Para resolver este problema, primero encontra
 \[H(x, u, \lambda) = x - u + 2\lambda u(1 - u).\]
 Luego, encontramos la función de costo$\lambda(t)$, que es
 \[\lambda'(t) = -\frac{\partial H}{\partial x} = -1 \implies \lambda(t) = -t + C.\]
- siguiendo las condiciones tenemos que 
+dado que no tenemos condiciones para $x(1)$, podemos hacer que $\lambda(1) = 0$, lo que nos da $C = 1$. Entonces, $\lambda(t) = -t + 1$.
+Ahora maximizamos $H$ con respecto a $u$, lo que nos da
+\[ H(u) = x-u + 2\lambda u(1 - u) = x - u + 2(-t + 1)u(1 - u) = x - u + 2(-t + 1)(u - u^2).\]
+Derivando con respecto a $u$
+\[\frac{\partial H}{du} = -1 + 2(-t + 1)(1 - 2u) = -1 + 2(-t + 1) - 4(-t + 1)u = (1-2t) -4u(1-t).\]
+Analicemos en los extremos de $u$ para encontrar el máximo.
+ \begin{align*}
+    \frac{\partial H}{\partial u} <0 &\implies u =0, \implies  (1-2t) < 0, \implies t > \frac{1}{2},
+ \end{align*}
+esto implica que el máximo del Hamiltoniano se alcanza en $u=0$ cuando $t > \frac{1}{2}$.
 \[
-\frac{\partial H}{\partial u} = -1 + 2\lambda(1 - 2u) = 0.
+\frac{\partial H}{\partial u} >0 \implies u =1, \implies  -3+2t > 0 \implies t > \frac{3}{2},
 \]
-despejando $u$ tenemos que
+pero como $t$ solo va hasta $1$, entonces $u = 1$ no es una solución válida. Ahora consideramos el caso interior, cuando
 \[
-u = \frac{2\lambda - 1}{4\lambda}.
+\frac{\partial H}{\partial u} = 0 \implies u = \frac{1-2t}{4(1-t)}.
 \]
-Ahora
+Este valor es admisible cuando $0 \le u \le 1$, lo cual ocurre para $t \le \frac{1}{2}$.
+\begin{align*}
+    \begin{cases}
+        u = \frac{1-2t}{4(1-t)} \quad  &0 \leq t \leq \frac{1}{2},\\
+        u = 0 \quad  &\frac{1}{2} \leq t \leq 1.
+    \end{cases}
+\end{align*}
+\textbf{Ejercicio 8.4}  Lo siguiente es una generalización del Ejemplo 8.4.  
+Sean $c, B, T > 0$ constantes y suponga que $B < \frac{cT^2}{4}$. Resolver
 
+\[
+\min_{u} \int_0^T \left( u(t)^2 + c\, x(t) \right)\, dt
+\]
+
+sujeto a
+\[
+x'(t) = u(t), \quad x(0) = 0, \quad x(T) = B,
+\]
+\[
+u(t) \geq 0.
+\]
+Primero, encontramos la función Hamiltoniana de nuestro sistema, que es
+\[H(x, u, \lambda) = u^2 + cx + \lambda u.\]
+encontramos la función de adjunta
+\[\lambda'(t) = -\frac{\partial H}{\partial x} = -c \implies \lambda(t) = -ct + k.\]
+para alguna constante $k$. para encontrar $u*$, minimizamos $H$ punto por punto:
+\[\frac{\partial H}{\partial u} = 2u + \lambda\]
+\[ 
+\frac{ \partial H}{\partial u} >0 \implies u = 0, \implies \lambda > 0 \implies -ct + k > 0 \implies t < \frac{k}{c},
+\]
+\[
+\frac{ \partial H}{\partial u} =0 \implies 0 \leq u^* \implies u^* = -\frac{\lambda}{2} = \frac{ct-k}{2}, \quad t \geq \frac{k}{c}.
+\]
+entonces tenemos la representación de $u^*$:
+\[
+u^* = \begin{cases}
+0 & 0 \leq t < \frac{k}{c},\\
+\frac{ct-k}{2} & \frac{k}{c} \leq t \leq T.
+\end{cases}
+\]
+\textbf{Caso 1.} si $k \leq 0$, entonces $0\leq t < \frac{k}{c}$ es imposible,
+por lo tanto $x'(t)=u=\frac{ct-k}{2}$, lo que implica que $x(t) = \frac{ct^2}{4} - \frac{kt}{2}$. 
+Dado que $x(T) = B=$ implica 
+\[
+B= \frac{cT^2}{4}-\frac{kT}{2} \implies k = \frac{cT}{2} - \frac{2B}{T}.
+\]
 \end{document}
