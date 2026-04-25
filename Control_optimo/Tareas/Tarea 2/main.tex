@@ -100,4 +100,207 @@ Dado que $x(T) = B=$ implica
 \[
 B= \frac{cT^2}{4}-\frac{kT}{2} \implies k = \frac{cT}{2} - \frac{2B}{T}.
 \]
+y por las que nos dieron $B < \frac{cT^2}{4}$, entonces $k > 0$, tenemos lo siguiente 
+\[
+B < \frac{cT^2}{4} \implies \frac{cT}{2} - \frac{2B}{T} > 0 \implies k > 0.
+\]
+lo cual es una contradicción. \\
+\textbf{Caso 2.} si $k\geq T$, ahora $k \leq t \leq T$ es imposible, entonces $u=0$ y $x(t) = 0$, lo cual es una contradicción con $x(T) = B$. \\
+\textbf{Caso 3.} si $0 < k < T$, entonces tenemos que $x'(t)=u=0$ en $0 \leq t < \frac{k}{c}$
+, lo que implica que $x(t) = 0$ en ese intervalo. 
+Para $\frac{k}{c} \leq t \leq T$, tenemos $x'(t) = u = \frac{ct-k}{2}$, lo que implica que
+\[x(t) = \frac{ct^2}{4} - \frac{kt}{2}+ r \]
+para alguna constante r. por la continuidad de $x$ tenemos $x(0) = x\left(\frac{k}{c}\right)$, lo que implica que $r = \frac{k^2}{4c}$.
+entonces $x(t) = \frac{ct^2}{4} - \frac{kt}{2} + \frac{k^2}{4c}$ para $\frac{k}{c} \leq t \leq T$. 
+asi $x(t) = \frac{c}{4}(t-\frac{k}{c})^2$, y la condicion de $x(T) = B$ implica que
+\[
+B= x(T) = \frac{c}{4}\left(T-\frac{k}{c}\right)^2 \implies k = cT \pm 2\sqrt{\frac{B}{c}}. 
+\]
+pero como lo queremos en el intervalo $0 < k < T$, entonces $k = cT - 2\sqrt{\frac{B}{c}}$.
+por lo tanto 
+\[
+u^* = \begin{cases}
+0 & 0 \leq t < T - 2\sqrt{\frac{B}{c}},\\
+\frac{c}{2}\left(t - T\right) + \sqrt{\frac{B}{c}} & T - 2\sqrt{\frac{B}{c}} \leq t \leq T.
+\end{cases} 
+\]
+\textbf{Ejercicio 12.4} Resuelva
+
+\[
+\min_{u_1, u_2} \int_0^5 \left( x_1(t) + \frac{1}{2} u_1(t)^2 + \frac{1}{2} u_2(t)^2 \right) dt
+\]
+
+sujeto a:
+
+\[
+x_1'(t) = u_1(t) + x_2(t), \quad x_1(0) = x_0,
+\]
+\[
+x_2'(t) = u_2(t), \quad x_2(0) = 0,
+\]
+\[
+-2 \leq u_1(t) \leq -1, \quad -8 \leq u_2(t) \leq -2.
+\]
+Comencemos encontrando la función Hamiltoniana de nuestro sistema, que es
+\[
+H(x_1, x_2, u_1, u_2, \lambda_1, \lambda_2) = x_1 + \frac{1}{2}u_1^2 + \frac{1}{2}u_2^2 + \lambda_1(u_1 + x_2) + \lambda_2 u_2
+\]
+las ecuaciones adjuntas son
+\[
+\lambda_1'(t) = -\frac{\partial H}{\partial x_1} = -1 \implies \lambda_1(t) = -t + C_1,
+\]
+\[
+\lambda_2'(t) = -\frac{\partial H}{\partial x_2} = -\lambda_1 \implies \lambda_2(t) = \frac{t^2}{2} - C_1 t + C_2.
+\]
+como no tenemos condiciones para $x_1(5)$ y $x_2(5)$, podemos hacer que $\lambda_1(5) = 0$ y $\lambda_2(5) = 0$, lo que nos da $C_1 = 5$ y $C_2 = \frac{25}{2}$, entonces
+\[\lambda_1(t) = -t + 5, \quad \lambda_2(t) = \frac{t^2}{2} - 5t + \frac{25}{2}.\]
+Ahora, minimizamos $H$ con respecto a $u_1$ y $u_2$ punto por punto, para $u_1$ tenemos
+\[\frac{\partial H}{\partial u_1} = u_1 + \lambda_1\]
+ dado que $-2 \leq u_1 \leq -1$, entonces
+\[\frac{\partial H}{\partial u_1} >  0 \implies u_1= -2, \implies -2 + \lambda_1 > 0 \implies \lambda_1 = -t + 5 > 2 \implies t < 3,\]
+\[\frac{\partial H}{\partial u_1} < 0 \implies u_1 = -1, \implies -1 + \lambda_1 < 0 \implies \lambda_1 = -t + 5 < 1 \implies t > 4,\]   
+\[\frac{\partial H}{\partial u_1} = 0 \implies -2 \leq u_1^*, \implies u_1^* = -\lambda_1 = t - 5, \quad 3 \leq t \leq 4.\]
+para $u_2$ tenemos
+\[\frac{\partial H}{\partial u_2} = u_2 + \lambda_2\]
+ dado que $-8 \leq u_2 \leq -2$, usando que $\lambda_2= \frac{(t-5)^2}{2}$, entonces
+\[\frac{\partial H}{\partial u_2} >  0 \implies u_2= -8, \implies -8 + \lambda_2 > 0 \implies \lambda_2 = \frac{(t-5)^2}{2} > 8 \implies t < 1,\]
+\[\frac{\partial H}{\partial u_2} < 0 \implies u_2 = -2, \implies -2 + \lambda_2 < 0 \implies \lambda_2 = \frac{(t-5)^2}{2} < 2 \implies 3 < t < 7,\]
+\[\frac{\partial H}{\partial u_2} = 0 \implies -8 \leq u_2^*, \implies -8 \leq -\lambda_2 \leq -2 \implies -8 \leq -\left(\frac{(t-5)^2}{2}\right) \leq -2 \implies 1 \leq t \leq 3.\]
+por lo tanto nuestros controles óptimos son
+\[u_1^* = \begin{cases}
+-2 & 0 \leq t < 3,\\
+t - 5 & 3 \leq t \leq 4,\\
+-1 & 4 < t \leq 5,
+\end{cases}\]
+\[u_2^* = \begin{cases}
+-8 & 0 \leq t < 1,\\ 
+- \frac{(t-5)^2}{2} & 1 \leq t \leq 3,\\
+-2 & 3 < t \leq 7.
+\end{cases}\]
+\textbf{Ejercicio 12.6}  Formule como un problema LQR y resuelva la ecuación de Riccati.
+
+\[
+\min_u \frac{1}{2} \int_0^T \left( 3x(t)^2 + u(t)^2 \right) dt
+\]
+
+sujeto a:
+
+\[
+x'(t) = x(t) + u(t), \quad x(0) = x_0.
+\]
+(no he entendido bien este tipo de ejercicios asi esta resuelto como el ejemplo del libro 12.5)
+Vamos a identificar el problema como un problema LQR, para esto identificamos $A$, $B$, $Q$ y $R$:
+\[A = 1, \quad B = 1, \quad Q = 3, \quad R = 1.\]
+Ahora, la ecuación de Riccati es
+\[-S' = 2S-S^2+3 , \quad S(T) = 3.\]
+organizando la ecuación de Riccati, tenemos
+\[S' = (S-3)(S+1), \quad S(T) = 0.\]
+Separar variables:
+\[
+\frac{dS}{(S - 3)(S + 1)} = dt.
+\]
+
+Descomposición en fracciones parciales:
+\[
+\frac{1}{(S - 3)(S + 1)} = \frac{1}{4} \left( \frac{1}{S - 3} - \frac{1}{S + 1} \right).
+\]
+
+Integramos:
+\[
+\frac{1}{4} \int \left( \frac{1}{S - 3} - \frac{1}{S + 1} \right) dS = \int dt.
+\]
+\[
+\frac{1}{4} \left( \ln |S - 3| - \ln |S + 1| \right) = t + C.
+\]
+\[
+\frac{1}{4} \ln \left( \frac{|S - 3|}{|S + 1|} \right) = t + C.
+\]
+
+Multiplicamos por 4:
+\[
+\ln \left( \frac{|S - 3|}{S + 1} \right) = 4t + 4C.
+\]
+
+Definiendo \( K = e^{4C} \) (constante que puede ser positiva o negativa, pues el valor absoluto permite signos):
+\[
+\frac{S - 3}{S + 1} = K e^{4t}.
+\]
+usando la condición de frontera \( S(T) = 0 \):
+\[\frac{0 - 3}{0 + 1} = K e^{4T} \implies K = -3 e^{-4T}.\]
+sea $\tau = T - t$, el tiempo restante, notamos que $e^{4t} = e^{4(T - \tau)} = e^{4T} e^{-4\tau}$, entonces
+\[\frac{S - 3}{S + 1} = -3 e^{-4T} e^{4T} e^{-4\tau} = -3 e^{-4\tau}.\]
+
+\[
+\frac{S - 3}{S + 1} = -3e^{-4t}.
+\]
+
+Multiplicamos en cruz:
+\[
+S - 3 = -3e^{-4t}(S + 1).
+\]
+\[
+S - 3 = -3e^{-4t}S - 3e^{-4t}.
+\]
+
+Agrupamos términos con \(S\):
+\[
+S + 3e^{-4t}S = -3 - 3e^{-4t}.
+\]
+\[
+S(1 + 3e^{-4t}) = -3(1 - e^{-4t}).
+\]
+
+Por tanto:
+\[
+S(t) = \frac{3(1 - e^{-4t})}{1 + 3e^{-4t}(T - t)}, \quad 0 \leq t \leq T.
+\]
+y ahora el control optimo viene dado por
+\[u^*(t) = -R^{-1}B^TS(t)x(t) = -S(t)x(t) = -\frac{3(1 - e^{-4t})}{1 + 3e^{-4t}(T - t)}x(t).\]
+
+
+\textbf{Ejercicio 12.8} Resolver
+
+\[
+\min_u \frac{1}{2} \int_0^1 u(t)^2 \, dt
+\]
+
+sujeto a:
+
+\[
+x''(t) = u(t), \quad x(0) = 0, \quad x(1) = A, \quad x'(1) = 0.
+\]
+vamos a añadir unas nuevas variables de estado para convertir la ecuación diferencial en un sistema
+de primer grado.
+Definamos $x_1(t) = x(t)$ y $x_2(t) = x'(t)$, entonces nuestro sistema se convierte en
+\begin{align*}
+    \begin{cases}
+        x_1'(t)=x_2(t) \quad &x_1(0) = 0, \quad x_1(1) = A\\
+        x_2'(t)= u(t) \quad &x_2(1) = 0
+    \end{cases}
+\end{align*}
+el hamiltoniano de nuestro sistema es
+\[H(x_1, x_2, u, \lambda_1, \lambda_2) = \frac{1}{2}u^2 + \lambda_1 x_2 + \lambda_2 u.\]
+las ecuaciones adjuntas son
+\[\lambda_1'(t) = -\frac{\partial H}{\partial x_1} = 0 \implies \lambda_1(t) = c_1,\]
+\[\lambda_2'(t) = -\frac{\partial H}{\partial x_2} = -\lambda_1 \implies \lambda_2(t) = -c_1 t + c_2.\]
+como $x_2(0)$ es libre entonces $\lambda_2(0) = 0$, lo que implica que $c_2 = 0$. ahora, minimizamos $H$ con respecto a $u$, lo que nos da
+\[\frac{\partial H}{\partial u} = u + \lambda_2 = 0 \implies u^* = -\lambda_2 = c_1 t.\]
+ahora, usando las ecuaciones de estado,
+\[x_2'(t) = u^* = c_1 t \implies x_2(t) = \frac{c_1 t^2}{2} + c_3.\]
+\[x_1'(t) = x_2(t) = \frac{c_1 t^2}{2} + c_3 \implies x_1(t) = \frac{c_1 t^3}{6} + c_3 t + c_4.\]
+aplicando la condición $x_1(0)=0 \implies c_4 = 0$ y las condiciones finales
+\[
+x_1(1) = \frac{c_1}{6}+c_3=A
+\]
+\[
+x_2(1) = \frac{c_1}{2} + c_3 = 0.
+\]
+restando la segunda de la primera ecuación, tenemos
+\[\frac{c_1}{6}+c_3 - \left(\frac{c_1}{2} + c_3\right) = A \implies -\frac{c_1}{3} = A \implies c_1 = -3A.\] 
+sustituyendo $x_2(1) = 0$:
+\[
+\frac{-3A}{2}+c_3=0 \implies c_3 =\frac{3A}{2}
+\]
+por lo tanto, el control óptimo es
+\[u^*(t) = -\lambda_2 = 3A t.\]
 \end{document}
