@@ -1,6 +1,6 @@
-PWD c:\Users\madar\OneDrive\Escritorio\Uni\Apuntes\Tarea_Control
+PWD c:\Users\madar\OneDrive\Escritorio\Uni\Apuntes\Int_Control
 INPUT C:\Users\madar\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\madar\OneDrive\Escritorio\Uni\Apuntes\Tarea_Control\main.tex
+INPUT c:\Users\madar\OneDrive\Escritorio\Uni\Apuntes\Int_Control\main.tex
 OUTPUT main.log
 INPUT .\uofa-eng-assignment.cls
 INPUT uofa-eng-assignment.cls

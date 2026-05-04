@@ -212,8 +212,14 @@ es facil encontrar su exponencial, dado que $A^2=0$ entonces tenemos que
     e^{A(t-s)} = I + A(t-s)
 \end{align*}
 por lo tanto
+\[
+x = e^{At} C_1 + \int_0^t (I + A(t-s)) B u(s) ds
+\]
+\[
+x= e^{At}C_1 + \int_{0}^{t}(B+A(t-s)B) u(s)ds
+\]
 \begin{align*}
-    e^{A(t-s)} B &= \left(\begin{matrix}
+    e^{A(t-s)} B u(s) &= \left(\begin{matrix}
 1 & t-s & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 1 & t-s & 0 & 0 & 0 & 0 \\
@@ -241,25 +247,56 @@ u_4(s)
 \end{matrix}\right)
 \\
 &= \left(\begin{matrix}
-\frac{t-s}{m} u_1(s) + \frac{t-s}{I_x} u_2(s) + \frac{t-s}{I_y} u_3(s) + \frac{t-s}{I_z} u_4(s) \
+    1 & t-s & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & t-s & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & t-s & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & t-s \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+\end{matrix}\right)
+\left(\begin{matrix}
+0 \\
 \frac{1}{m} u_1(s) \\
-\frac{t-s}{I_x} u_2(s) + \frac{t-s}{I_y} u_3(s) + \frac{t-s}{I_z} u_4(s) \\
+0 \\
 \frac{1}{I_x} u_2(s) \\
-\frac{t-s}{I_y} u_3(s) + \frac{ t-s}{I_z} u_4(s) \\
+0 \\
+\frac{1}{I_y} u_3(s) \\ 
+0 \\
+\frac{1}{I_z} u_4(s)
+\end{matrix}\right) \\
+&= \left(\begin{matrix}
+\frac{t-s}{m} u_1(s)  \\
+\frac{1}{m} u_1(s) \\
+\frac{t-s}{I_x} u_2(s)\\
+\frac{1}{I_x} u_2(s) \\
+\frac{t-s}{I_y} u_3(s) \\
 \frac{1}{I_y} u_3(s) \\
 \frac{t-s}{I_z} u_4(s) \\
 \frac{1}{I_z} u_4(s)
-\end{matrix}\right) 
+\end{matrix}\right)
+% &= \left(\begin{matrix}
+% \frac{t-s}{m} u_1(s) + \frac{t-s}{I_x} u_2(s) + \frac{t-s}{I_y} u_3(s) + \frac{t-s}{I_z} u_4(s) \
+% \frac{1}{m} u_1(s) \\
+% \frac{t-s}{I_x} u_2(s) + \frac{t-s}{I_y} u_3(s) + \frac{t-s}{I_z} u_4(s) \\
+% \frac{1}{I_x} u_2(s) \\
+% \frac{t-s}{I_y} u_3(s) + \frac{ t-s}{I_z} u_4(s) \\
+% \frac{1}{I_y} u_3(s) \\
+% \frac{t-s}{I_z} u_4(s) \\
+% \frac{1}{I_z} u_4(s)
+% \end{matrix}\right) 
 \end{align*}
 Algo un poco feo entonces vamos a renombrar las constantes para que se vea un poco mas bonito, entonces tenemos que dónde $a_1=\frac{1}{m}, a_2=\frac{1}{I_x}, a_3=\frac{1}{I_y}, a_4=\frac{1}{I_z}$, entonces,
 \begin{align*}
     e^{A(t-s)} B u(s) = \left(\begin{matrix}
-a_1 (t-s) u_1(s) + a_2 (t-s) u_2(s) + a_3 (t-s) u_3(s) + a_4 (t-s) u_4(s) \\
+        a_1 (t-s) u_1(s)\\
 a_1 u_1(s) \\
-a_2 (t-s) u_2(s) + a_3 (t-s) u_3(s) + a_4 (t-s) u_4(s) \\
+a_2 (t-s) u_2(s) \\
 a_2 u_2(s) \\
-a_3 (t-s) u_3(s) + a_4 (t-s) u_4(s) \\
+a_3 (t-s) u_3(s) \\
 a_3 u_3(s) \\
+a_4 (t-s) u_4(s) \\
 a_4 u_4(s)
 \end{matrix}\right)
 \end{align*}
@@ -276,22 +313,23 @@ Por lo tanto la solución del sistema linealizado es
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
 \end{matrix}\right)
      C_1 + \int_0^t \left(\begin{matrix}
-a_1 (t-s) u_1(s) + a_2 (t-s) u_2(s) + a_3 (t-s) u_3(s) + a_4 (t-s) u_4  (s) \\
+        a_1 (t-s) u_1(s)\\
 a_1 u_1(s) \\
-a_2 (t-s) u_2(s) + a_3 (t-s) u_3(s) + a_4 (t-s) u_4(s) \
+a_2 (t-s) u_2(s) \\
 a_2 u_2(s) \\
-a_3 (t-s) u_3(s) + a_4 (t-s) u_4(s) \\
+a_3 (t-s) u_3(s) \\
 a_3 u_3(s) \\
+a_4 (t-s) u_4(s) \\
 a_4 u_4(s)
 \end{matrix}\right) ds \\
 &= \left(\begin{matrix}
-C_{11} + C_{12} t + a_1 \int_0^t (t-s) u_1(s) ds + a_2 \int_0^t (t-s) u_2(s) ds + a_3 \int_0^t (t-s) u_3(s) ds + a_4 \int_0^t (t-s) u_4(s) ds \\
+C_{11} + C_{12} t + a_1 \int_0^t (t-s) u_1(s) ds \\
 C_{12} + a_1 \int_0^t u_1(s) ds \\
-C_{13} + C_{14} t + a_2 \int_0^t (t-s) u_2(s) ds + a_3 \int_0^t (t-s) u _3(s) ds + a_4 \int_0^t (t-s) u_4(s) ds \\
+C_{13} + C_{14} t + a_2 \int_0^t (t-s) u_2(s) ds \\
 C_{14} + a_2 \int_0^t u_2(s) ds \\
-C_{15} + C_{16} t + a_3 \int_0^t (t-s) u_3(s) ds + a_4 \int_0^t (t-s) u_4(s) ds \\
+C_{15} + C_{16} t + a_3 \int_0^t (t-s) u_3(s) ds \\
 C_{16} + a_3 \int_0^t u_3(s) ds \\
-C_{17} + C_{18} t + a_4 \int_0^t u_4(s) ds \\
+C_{17} + C_{18} t + a_4 \int_0^t (t-s) u_4(s) ds \\
 C_{18} + a_4 \int_0^t u_4(s) ds
 \end{matrix}\right)
 \end{align*}
@@ -308,6 +346,44 @@ y la solución sin el termino forzante nos queda
         C_{18}
     \end{matrix}\right)
 \end{align*}
+Vamos a ver si el sistema es controlable, para eso vamos a usar la condición de controlabilidad de Kalman, entonces tenemos que la matriz de controlabilidad es
+\begin{align*} 
+   C = Rank[B, AB, A^2 B]
+\end{align*}
+Dado que $A^2=0$ entonces $A^2 B=0$ entonces la matriz de controlabilidad es
+\begin{align*}
+    C = Rank[B, AB] = Rank\left[\begin{matrix}
+0 & 0 & 0 & 0 \\
+\frac{1}{m} & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & \frac{1}{I_x} & 0 & 0 \\
+0 & 0 & 0 & 0 \\  
+0 & 0 & \frac{1}{I_y} & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & \frac{1}{I_z}
+\end{matrix}\right]
+\end{align*}
+Como $AB$ es
+\begin{align*}
+    \left(\begin{matrix}
+\frac{1}{m} & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & \frac{1}{I_x} & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & \frac{1}{I_y} & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & \frac{1}{I_z} \\
+0 & 0 & 0 & 0
+\end{matrix}\right)
+\end{align*}
+por lo tanto la matriz de controlabilidad es
+\begin{align*}
+    C = Rank[B, AB] = 8
+\end{align*}
+Por lo tanto el sistema es controlable.
+
+
+
 
 
 
