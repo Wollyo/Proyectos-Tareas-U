@@ -101,14 +101,14 @@ y para las ecuaciones diferenciales de las aceleraciones angulares entonces tene
 \end{align*}
 Viendolo de manera vectorial el punto de equilibrio será 
 \begin{align*}
-    z_e = z_0 \\
-    \dot{z}_e = 0
-    \phi_e = 0
-    \theta_e=0
-    \psi_e = 0
-    \dot{\phi_e}=0
-    \dot{\theta_e}=0
-    \dot{\psi_e}=0
+    z_e = z_0 , \quad
+    \dot{z}_e = 0, \\ 
+    \phi_e = 0, \quad
+    \theta_e=0, \\
+    \psi_e = 0, \quad
+    \dot{\phi_e}=0,\\
+    \dot{\theta_e}=0, \quad
+    \dot{\psi_e}=0,\\
 \end{align*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,42 +120,62 @@ Viendolo de manera vectorial el punto de equilibrio será
 
 
 \section{Linealización del sistema}
-Dado que hasta el momento hemos trabajado con sistema de ecuaciones diferenciales de primer orden entonces vamos
-el grado de la siguiente ecuación diferencial de segundo orden a primer orden para eso vamos a introducir nuevas variables 
-con una condición dado que $T$ es fijo vamos a asumir que $T=1$ sin perdida de generalidad, entonces tenemos que
-
+Vamos a linealizar el sistema alrededor del punto de equilibrio encontrado en la sección anterior,
+para esto definiremos las siguientes variables
 \begin{align*}
-    \begin{cases}
-        x_1=z, \quad x_2=\dot{z} \\
-        x_3=\phi, \quad x_4=\dot{\phi} \\
-        x_5=\theta, \quad x_6=\dot{\theta} \\
-        x_7=\psi, \quad x_8=\dot{\psi}
-    \end{cases}    
+    \delta z = z -z_e,& \quad \delta \dot{z}= \dot{z}-0, \delta \phi = \phi - 0, \quad \delta \dot{\phi} = \dot{\phi}\\
+&\delta T = T-mg, \quad \delta \tau_\phi = \tau_\phi - 0,
 \end{align*}
-Por lo tanto nos queda el siguiente sistema de ecuaciones diferenciales de primer orden
+Se considerala tambien que $\delta \theta = \theta, \delta \psi = \psi, \delta \dot{\theta} = \dot{\theta}, \delta \dot{\psi} = \dot{\psi}$, Como este modelo no tiene estas ecuaciones supondremos que estan equilibrio (cero), o cualquier caso las su atribuciones serán nulas.
 \begin{align*}
-    \begin{cases}
-        \dot{x}_1 = x_2 \\
-        \dot{x}_2 = \frac{\tau_z}{m} \cos x_3 \cos x_5 - g \\
-        \dot{x}_3 = x_4 \\
-        \dot{x}_4 = \frac{1}{I_x} \left( x_6 x_8 (I_y - I_z) + \tau_\phi \right) \\
-        \dot{x}_5 = x_6 \\
-        \dot{x}_6 = \frac{1}{I_y} \left( x_4 x_8 (I_z - I_x) + \tau_\theta \right) \\
-        \dot{x}_7 = x_8 \\
-        \dot{x}_8 = \frac{1}{I_z} \left( x_4 x_6 (I_x - I_y) + \tau_\psi \right)
-    \end{cases}
+    \delta \dot{z} \approx \frac{\partial}{\partial T}|_{z_e} \Delta T + \frac{\partial}{\partial \phi} |_{z_e} \Delta \phi + \frac{\partial }{\partial \theta} |_{z_e} \Delta \theta 
 \end{align*}
-dónde el control de entrada del sistema es el vector $\tau=[\tau_z, \tau_\phi, \tau_\theta, \tau_\psi]$ \\
-Asi vamos a escribir el sistema como $\dot{x}=f(x,u)$, 
-entonces tenemos que el sistema linealizado alrededor del punto de equilibrio 
-$x_e=[0,0,0,0,0,0,0,0]$ y $u_e=[mg,0,0,0]$ es
+Dónde 
 \begin{align*}
-    \triangle \dot{x} \approx A \triangle x + B \triangle u
+    \frac{\partial}{\partial T}=\frac{1}{m} cos \phi cos \theta |_{z_e}=\frac{1}{m}\\
+    \frac{\partial}{\partial \phi}= -\frac{T}{m} \sin \phi \cos \theta |_{z_e} = 0 \\
+    \frac{\partial}{\partial \theta} = -\frac{T}{m} \cos \phi \sin \theta |_{z_e} = 0 
 \end{align*}
-dónde 
+Por lo tanto
 \[
- A = \frac{\partial f}{\partial x} = |_{(x_e,u_e)}, \quad B = \frac{\partial f}{\partial u} = |_{(x_e,u_e)}
+\delta \ddot{z} \approx \frac{1}{m}\delta T
 \]
+eso para la primera ecuacion diferencial, para la segunda ecuaciñón tenemos lo siguiente 
+\begin{align*}
+    \delta \ddto{\phi} \approx \frac{\partial}{\partial}
+\end{align*}
+% \begin{align*}
+%     \begin{cases}
+%         x_1=z, \quad x_2=\dot{z} \\
+%         x_3=\phi, \quad x_4=\dot{\phi} \\
+%         x_5=\theta, \quad x_6=\dot{\theta} \\
+%         x_7=\psi, \quad x_8=\dot{\psi}
+%     \end{cases}    
+% \end{align*}
+% Por lo tanto nos queda el siguiente sistema de ecuaciones diferenciales de primer orden
+% \begin{align*}
+%     \begin{cases}
+%         \dot{x}_1 = x_2 \\
+%         \dot{x}_2 = \frac{\tau_z}{m} \cos x_3 \cos x_5 - g \\
+%         \dot{x}_3 = x_4 \\
+%         \dot{x}_4 = \frac{1}{I_x} \left( x_6 x_8 (I_y - I_z) + \tau_\phi \right) \\
+%         \dot{x}_5 = x_6 \\
+%         \dot{x}_6 = \frac{1}{I_y} \left( x_4 x_8 (I_z - I_x) + \tau_\theta \right) \\
+%         \dot{x}_7 = x_8 \\
+%         \dot{x}_8 = \frac{1}{I_z} \left( x_4 x_6 (I_x - I_y) + \tau_\psi \right)
+%     \end{cases}
+% \end{align*}
+% dónde el control de entrada del sistema es el vector $\tau=[\tau_z, \tau_\phi, \tau_\theta, \tau_\psi]$ \\
+% Asi vamos a escribir el sistema como $\dot{x}=f(x,u)$, 
+% entonces tenemos que el sistema linealizado alrededor del punto de equilibrio 
+% $x_e=[0,0,0,0,0,0,0,0]$ y $u_e=[mg,0,0,0]$ es
+% \begin{align*}
+%     \triangle \dot{x} \approx A \triangle x + B \triangle u
+% \end{align*}
+% dónde 
+% \[
+%  A = \frac{\partial f}{\partial x} = |_{(x_e,u_e)}, \quad B = \frac{\partial f}{\partial u} = |_{(x_e,u_e)}
+% \]
 los calculos son un poco tediosos pero se pueden hacer de forma sistematica y son algo repetitivos por lo tanto vamos a 
 poner la soicion final de las matrices $A$ y $B$.
 % \begin{align*}

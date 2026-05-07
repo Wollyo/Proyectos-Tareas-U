@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1778163670.05081 "/Users/wolyo/Documents/Proyectos-Tareas-U/Int_Control/main.tex" "main.pdf" "main" 1778163672.41073 0
-  "/Users/wolyo/Documents/Proyectos-Tareas-U/Int_Control/main.tex" 1778163669.69033 13999 da06bb085f1a3ece7dd35640303a4108 ""
+["pdflatex"] 1778171312.31988 "/Users/wolyo/Documents/Proyectos-Tareas-U/Int_Control/main.tex" "main.pdf" "main" 1778171314.92986 0
+  "/Users/wolyo/Documents/Proyectos-Tareas-U/Int_Control/main.tex" 1778171311.75303 14950 42914a98064ea90a5cf5424d20f2ff4b ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -197,9 +197,9 @@
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774209607 3636776 dc5fa9b6b1453b9d196cd42edf876004 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
   "logo.png" 1776373430.79889 26248 556a554f2448f204f11f123a03f4da1c ""
-  "main.aux" 1778163672.07341 789 7044c8683bef222c7c5e19f0a83a2fa7 "pdflatex"
-  "main.out" 1778163672.07872 964 c4d569cf5f84465947b360c40dd78106 "pdflatex"
-  "main.tex" 1778163669.69033 13999 da06bb085f1a3ece7dd35640303a4108 ""
+  "main.aux" 1778171314.54602 789 7044c8683bef222c7c5e19f0a83a2fa7 "pdflatex"
+  "main.out" 1778171314.55117 964 c4d569cf5f84465947b360c40dd78106 "pdflatex"
+  "main.tex" 1778171311.75303 14950 42914a98064ea90a5cf5424d20f2ff4b ""
   "uofa-eng-assignment.cls" 1776373430.80544 2035 0c154ee5e42a7135dd9f66fcfa9f85ad ""
   (generated)
   "main.aux"
