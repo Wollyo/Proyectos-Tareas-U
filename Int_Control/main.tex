@@ -128,21 +128,81 @@ para esto definiremos las siguientes variables
 \end{align*}
 Se considerala tambien que $\delta \theta = \theta, \delta \psi = \psi, \delta \dot{\theta} = \dot{\theta}, \delta \dot{\psi} = \dot{\psi}$, Como este modelo no tiene estas ecuaciones supondremos que estan equilibrio (cero), o cualquier caso las su atribuciones serán nulas.
 \begin{align*}
-    \delta \dot{z} \approx \frac{\partial}{\partial T}|_{z_e} \Delta T + \frac{\partial}{\partial \phi} |_{z_e} \Delta \phi + \frac{\partial }{\partial \theta} |_{z_e} \Delta \theta 
+    \delta \dot{z} \approx \frac{\partial}{\partial T}\Big|_{z_e} \Delta T + \frac{\partial}{\partial \phi} \Big|_{z_e} \Delta \phi + \frac{\partial }{\partial \theta} \Big|_{z_e} \Delta \theta 
 \end{align*}
 Dónde 
 \begin{align*}
-    \frac{\partial}{\partial T}=\frac{1}{m} cos \phi cos \theta |_{z_e}=\frac{1}{m}\\
-    \frac{\partial}{\partial \phi}= -\frac{T}{m} \sin \phi \cos \theta |_{z_e} = 0 \\
-    \frac{\partial}{\partial \theta} = -\frac{T}{m} \cos \phi \sin \theta |_{z_e} = 0 
+    \frac{\partial}{\partial T}=\frac{1}{m} cos \phi cos \theta \Big|_{z_e}=\frac{1}{m}\\
+    \frac{\partial}{\partial \phi}= -\frac{T}{m} \sin \phi \cos \theta \Big|_{z_e} = 0 \\
+    \frac{\partial}{\partial \theta} = -\frac{T}{m} \cos \phi \sin \theta \Big|_{z_e} = 0 
 \end{align*}
 Por lo tanto
 \[
 \delta \ddot{z} \approx \frac{1}{m}\delta T
 \]
-eso para la primera ecuacion diferencial, para la segunda ecuaciñón tenemos lo siguiente 
+eso para la primera ecuación diferencial, para la segunda ecuación tenemos lo siguiente 
 \begin{align*}
-    \delta \ddto{\phi} \approx \frac{\partial}{\partial}
+    \delta \ddot{\phi} \approx \frac{\partial}{\partial \dot{\theta}} \Big|_{z_e} \Delta \dot{\theta} + \frac{\partial}{\partial \dot{\psi}} \Big|_{z_e} \Delta \dot{\psi} + \frac{1}{I_x} \delta \tau_\phi 
+\end{align*}
+y 
+\begin{align*}
+    \frac{\partial}{\partial \dot{\theta}} = \frac{\dot{\psi} I_y-I_z}{I_x}\Big|_{z_e} = 0, \quad \frac{\partial}{\partial \dot{\psi}}= \frac{\dot{\theta}(I_y-I_z)}{I_x}\Big|_{z_e} = 0  
+\end{align*}
+Resulta \[
+\delta \ddot{\phi} = \frac{1}{I_x} \delta \tau_\phi\]
+ahora tomando como vector de estados $x=[\delta z, \delta \dot{z}, \delta \phi, \delta \dot{\phi}]$ y el vector de control de entrada $u=[\delta T, \delta \tau_\phi]$ entonces tenemos que
+
+\begin{align*}
+    \dot{x} = \begin{bmatrix}
+        \delta \dot{z} \\
+        \delta \ddot{z} \\
+        \delta \dot{\phi} \\
+        \delta \ddot{\phi}
+    \end{bmatrix}  = \begin{bmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        \delta z \\
+        \delta \dot{z} \\
+        \delta \phi \\
+        \delta \dot{\phi}
+    \end{bmatrix} + \begin{bmatrix}
+        0 & 0 \\
+        \frac{1}{m} & 0 \\
+        0 & 0 \\
+        0 & \frac{1}{I_x}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \delta T \\
+        \delta \tau_\phi
+    \end{bmatrix}
+\end{align*}
+\section{Solución del sistema linealizado}
+Dado que el modelo es $\dot{x} = Ax+Bu$, entonces tenemos que la solución será de la forma
+\[
+ x = e^{At} C_1 + \int_0^t (I + A(t-s)) B u(s) ds
+\]
+con \begin{align*}
+    x = \begin{bmatrix}
+        \delta \dot{z} \\
+        \delta \ddot{z} \\
+        \delta \dot{\phi} \\
+        \delta \ddot{\phi}
+    \end{bmatrix}, \quad A = \begin{bmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0
+    \end{bmatrix}
+, \quad B = \begin{bmatrix}
+        0 & 0 \\
+        \frac{1}{m} & 0 \\
+        0 & 0 \\
+        0 & \frac{1}{I_x}
+    \end{bmatrix}
 \end{align*}
 % \begin{align*}
 %     \begin{cases}
@@ -176,8 +236,7 @@ eso para la primera ecuacion diferencial, para la segunda ecuaciñón tenemos lo
 % \[
 %  A = \frac{\partial f}{\partial x} = |_{(x_e,u_e)}, \quad B = \frac{\partial f}{\partial u} = |_{(x_e,u_e)}
 % \]
-los calculos son un poco tediosos pero se pueden hacer de forma sistematica y son algo repetitivos por lo tanto vamos a 
-poner la soicion final de las matrices $A$ y $B$.
+
 % \begin{align*}
 %     \frac{\partial f_1}{\partial x_1} = 0, \quad \frac{\partial f_1}{\partial x_2} = 1, \quad \frac{\partial f_1}{\partial x_i} = 0 \text{ para } i=3,...,8 
 % \end{align*}
@@ -210,213 +269,213 @@ poner la soicion final de las matrices $A$ y $B$.
 %     \frac{\partial f_8}{\partial x_4} = 0, \quad \frac{\partial f_8}{\partial x_6} = 0, \quad \frac{\partial f_8}{\partial x_8} = 0, \quad \frac{\partial f_8}{\partial x_i} = 0 \text{ para } i=1,2,3,5,7
 % \end{align*}
 % entonces la matriz $A$ es
-\[
-A = \begin{bmatrix}
-0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0& 0 & 0  \\
-0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 
-\end{bmatrix}
-\]
-y la matriz $B$ es
-\[
-B = \begin{bmatrix}
-0 & 0 & 0 & 0 \\
-\frac{1}{m} & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 \\
-0 & \frac{1}{I_x} & 0 & 0 \\
-0 & 0 & 0 & 0 \\
-0 & 0 & \frac{1}{I_y} & 0 \\
-0 & 0 & 0 & 0 \\
-0 & 0 & 0 & \frac{1}{I_z}
-\end{bmatrix}
-\]
-por lo tanto la solución del sistema linealizado es
-\begin{align*}
-    x = e^{At} C_1 + \int_0^t e^{A(t-s)} B  u(s) ds  
-\end{align*}
-Calculemos primero lo que esta dentro de la integral, donde $e^A(t-s)$ al ser una matriz nipotente
-es facil encontrar su exponencial, dado que $A^2=0$ entonces tenemos que
-\begin{align*}
-    e^{A(t-s)} = I + A(t-s)
-\end{align*}
-por lo tanto
-\[
-x = e^{At} C_1 + \int_0^t (I + A(t-s)) B u(s) ds
-\]
-\[
-x= e^{At}C_1 + \int_{0}^{t}(B+A(t-s)B) u(s)ds
-\]
-\begin{align*}
-    e^{A(t-s)} B u(s) &= \left(\begin{matrix}
-1 & t-s & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 1 & t-s & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 1 & t-s & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 1 & t-s \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
-\end{matrix}\right)
-\left(\begin{matrix}
-0 & 0 & 0 & 0 \\
-\frac{1}{m} & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 \\
-0 & \frac{1}{I_x} & 0 & 0 \\
-0 & 0 & 0 & 0 \\
-0 & 0 & \frac{1}{I_y} & 0 \\
-0 & 0 & 0 & 0 \\
-0 & 0 & 0 & \frac{1}{I_z}
-\end{matrix}\right) 
-\left(\begin{matrix}
-u_1(s) \\
-u_2(s) \\
-u_3(s) \\
-u_4(s)
-\end{matrix}\right)
-\\
-&= \left(\begin{matrix}
-    1 & t-s & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 1 & t-s & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 1 & t-s & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 1 & t-s \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
-\end{matrix}\right)
-\left(\begin{matrix}
-0 \\
-\frac{1}{m} u_1(s) \\
-0 \\
-\frac{1}{I_x} u_2(s) \\
-0 \\
-\frac{1}{I_y} u_3(s) \\ 
-0 \\
-\frac{1}{I_z} u_4(s)
-\end{matrix}\right) \\
-&= \left(\begin{matrix}
-\frac{t-s}{m} u_1(s)  \\
-\frac{1}{m} u_1(s) \\
-\frac{t-s}{I_x} u_2(s)\\
-\frac{1}{I_x} u_2(s) \\
-\frac{t-s}{I_y} u_3(s) \\
-\frac{1}{I_y} u_3(s) \\
-\frac{t-s}{I_z} u_4(s) \\
-\frac{1}{I_z} u_4(s)
-\end{matrix}\right)
+% \[
+% A = \begin{bmatrix}
+% 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 0 & 0& 0 & 0  \\
+% 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+% 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 
+% \end{bmatrix}
+% \]
+% y la matriz $B$ es
+% \[
+% B = \begin{bmatrix}
+% 0 & 0 & 0 & 0 \\
+% \frac{1}{m} & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 0 \\
+% 0 & \frac{1}{I_x} & 0 & 0 \\
+% 0 & 0 & 0 & 0 \\
+% 0 & 0 & \frac{1}{I_y} & 0 \\
+% 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & \frac{1}{I_z}
+% \end{bmatrix}
+% \]
+% por lo tanto la solución del sistema linealizado es
+% \begin{align*}
+%     x = e^{At} C_1 + \int_0^t e^{A(t-s)} B  u(s) ds  
+% \end{align*}
+% Calculemos primero lo que esta dentro de la integral, donde $e^A(t-s)$ al ser una matriz nipotente
+% es facil encontrar su exponencial, dado que $A^2=0$ entonces tenemos que
+% \begin{align*}
+%     e^{A(t-s)} = I + A(t-s)
+% \end{align*}
+% por lo tanto
+% \[
+% x = e^{At} C_1 + \int_0^t (I + A(t-s)) B u(s) ds
+% \]
+% \[
+% x= e^{At}C_1 + \int_{0}^{t}(B+A(t-s)B) u(s)ds
+% \]
+% \begin{align*}
+%     e^{A(t-s)} B u(s) &= \left(\begin{matrix}
+% 1 & t-s & 0 & 0 & 0 & 0 & 0 & 0 \\
+% 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 1 & t-s & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 1 & t-s & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 0 & 0 & 1 & t-s \\
+% 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+% \end{matrix}\right)
+% \left(\begin{matrix}
+% 0 & 0 & 0 & 0 \\
+% \frac{1}{m} & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 0 \\
+% 0 & \frac{1}{I_x} & 0 & 0 \\
+% 0 & 0 & 0 & 0 \\
+% 0 & 0 & \frac{1}{I_y} & 0 \\
+% 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & \frac{1}{I_z}
+% \end{matrix}\right) 
+% \left(\begin{matrix}
+% u_1(s) \\
+% u_2(s) \\
+% u_3(s) \\
+% u_4(s)
+% \end{matrix}\right)
+% \\
 % &= \left(\begin{matrix}
-% \frac{t-s}{m} u_1(s) + \frac{t-s}{I_x} u_2(s) + \frac{t-s}{I_y} u_3(s) + \frac{t-s}{I_z} u_4(s) \
+%     1 & t-s & 0 & 0 & 0 & 0 & 0 & 0 \\
+% 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 1 & t-s & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 1 & t-s & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 0 & 0 & 1 & t-s \\
+% 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+% \end{matrix}\right)
+% \left(\begin{matrix}
+% 0 \\
 % \frac{1}{m} u_1(s) \\
-% \frac{t-s}{I_x} u_2(s) + \frac{t-s}{I_y} u_3(s) + \frac{t-s}{I_z} u_4(s) \\
+% 0 \\
 % \frac{1}{I_x} u_2(s) \\
-% \frac{t-s}{I_y} u_3(s) + \frac{ t-s}{I_z} u_4(s) \\
+% 0 \\
+% \frac{1}{I_y} u_3(s) \\ 
+% 0 \\
+% \frac{1}{I_z} u_4(s)
+% \end{matrix}\right) \\
+% &= \left(\begin{matrix}
+% \frac{t-s}{m} u_1(s)  \\
+% \frac{1}{m} u_1(s) \\
+% \frac{t-s}{I_x} u_2(s)\\
+% \frac{1}{I_x} u_2(s) \\
+% \frac{t-s}{I_y} u_3(s) \\
 % \frac{1}{I_y} u_3(s) \\
 % \frac{t-s}{I_z} u_4(s) \\
 % \frac{1}{I_z} u_4(s)
-% \end{matrix}\right) 
-\end{align*}
-Algo un poco feo entonces vamos a renombrar las constantes para que se vea un poco mas bonito, entonces tenemos que dónde $a_1=\frac{1}{m}, a_2=\frac{1}{I_x}, a_3=\frac{1}{I_y}, a_4=\frac{1}{I_z}$, entonces,
-\begin{align*}
-    e^{A(t-s)} B u(s) = \left(\begin{matrix}
-        a_1 (t-s) u_1(s)\\
-a_1 u_1(s) \\
-a_2 (t-s) u_2(s) \\
-a_2 u_2(s) \\
-a_3 (t-s) u_3(s) \\
-a_3 u_3(s) \\
-a_4 (t-s) u_4(s) \\
-a_4 u_4(s)
-\end{matrix}\right)
-\end{align*}
-Por lo tanto la solución del sistema linealizado es
-\begin{align*}
-    x(t) &= \left(\begin{matrix}
-1 & t & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 1 & t & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 1 & t & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 1 & t \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
-\end{matrix}\right)
-     C_1 + \int_0^t \left(\begin{matrix}
-        a_1 (t-s) u_1(s)\\
-a_1 u_1(s) \\
-a_2 (t-s) u_2(s) \\
-a_2 u_2(s) \\
-a_3 (t-s) u_3(s) \\
-a_3 u_3(s) \\
-a_4 (t-s) u_4(s) \\
-a_4 u_4(s)
-\end{matrix}\right) ds \\
-&= \left(\begin{matrix}
-C_{11} + C_{12} t + a_1 \int_0^t (t-s) u_1(s) ds \\
-C_{12} + a_1 \int_0^t u_1(s) ds \\
-C_{13} + C_{14} t + a_2 \int_0^t (t-s) u_2(s) ds \\
-C_{14} + a_2 \int_0^t u_2(s) ds \\
-C_{15} + C_{16} t + a_3 \int_0^t (t-s) u_3(s) ds \\
-C_{16} + a_3 \int_0^t u_3(s) ds \\
-C_{17} + C_{18} t + a_4 \int_0^t (t-s) u_4(s) ds \\
-C_{18} + a_4 \int_0^t u_4(s) ds
-\end{matrix}\right)
-\end{align*}
-y la solución sin el termino forzante nos queda 
-\begin{align*}
-    x(t) = \left(\begin{matrix}
-        C_{11} + C_{12} t \\
-        C_{12} \\
-        C_{13} + C_{14} t \\
-        C_{14} \\     
-        C_{15} + C_{16} t \\
-        C_{16} \\
-        C_{17} + C_{18} t \\
-        C_{18}
-    \end{matrix}\right)
-\end{align*}
-\section{Uso del teorema de Kalman}
-Vamos a ver si el sistema es controlable, para eso vamos a usar la condición de controlabilidad de Kalman, entonces tenemos que la matriz de controlabilidad es
-\begin{align*} 
-   C = Rank[B, AB, A^2 B]
-\end{align*}
-Dado que $A^2=0$ entonces $A^2 B=0$ entonces la matriz de controlabilidad es
-\begin{align*}
-    C = Rank[B, AB] = Rank\left[\begin{matrix}
-0 & 0 & 0 & 0 \\
-\frac{1}{m} & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 \\
-0 & \frac{1}{I_x} & 0 & 0 \\
-0 & 0 & 0 & 0 \\  
-0 & 0 & \frac{1}{I_y} & 0 \\
-0 & 0 & 0 & 0 \\
-0 & 0 & 0 & \frac{1}{I_z}
-\end{matrix}\right]
-\end{align*}
-Como $AB$ es
-\begin{align*}
-    \left(\begin{matrix}
-\frac{1}{m} & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 \\
-0 & \frac{1}{I_x} & 0 & 0 \\
-0 & 0 & 0 & 0 \\
-0 & 0 & \frac{1}{I_y} & 0 \\
-0 & 0 & 0 & 0 \\
-0 & 0 & 0 & \frac{1}{I_z} \\
-0 & 0 & 0 & 0
-\end{matrix}\right)
-\end{align*}
-por lo tanto la matriz de controlabilidad es
-\begin{align*}
-    C = Rank[B, AB] = 8
-\end{align*}
-Por lo tanto el sistema es controlable.
-\section{Conjunto de datos iniciales admisibles}
-Dado que al linealizar el sistema 
+% \end{matrix}\right)
+% % &= \left(\begin{matrix}
+% % \frac{t-s}{m} u_1(s) + \frac{t-s}{I_x} u_2(s) + \frac{t-s}{I_y} u_3(s) + \frac{t-s}{I_z} u_4(s) \
+% % \frac{1}{m} u_1(s) \\
+% % \frac{t-s}{I_x} u_2(s) + \frac{t-s}{I_y} u_3(s) + \frac{t-s}{I_z} u_4(s) \\
+% % \frac{1}{I_x} u_2(s) \\
+% % \frac{t-s}{I_y} u_3(s) + \frac{ t-s}{I_z} u_4(s) \\
+% % \frac{1}{I_y} u_3(s) \\
+% % \frac{t-s}{I_z} u_4(s) \\
+% % \frac{1}{I_z} u_4(s)
+% % \end{matrix}\right) 
+% \end{align*}
+% Algo un poco feo entonces vamos a renombrar las constantes para que se vea un poco mas bonito, entonces tenemos que dónde $a_1=\frac{1}{m}, a_2=\frac{1}{I_x}, a_3=\frac{1}{I_y}, a_4=\frac{1}{I_z}$, entonces,
+% \begin{align*}
+%     e^{A(t-s)} B u(s) = \left(\begin{matrix}
+%         a_1 (t-s) u_1(s)\\
+% a_1 u_1(s) \\
+% a_2 (t-s) u_2(s) \\
+% a_2 u_2(s) \\
+% a_3 (t-s) u_3(s) \\
+% a_3 u_3(s) \\
+% a_4 (t-s) u_4(s) \\
+% a_4 u_4(s)
+% \end{matrix}\right)
+% \end{align*}
+% Por lo tanto la solución del sistema linealizado es
+% \begin{align*}
+%     x(t) &= \left(\begin{matrix}
+% 1 & t & 0 & 0 & 0 & 0 & 0 & 0 \\
+% 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 1 & t & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 1 & t & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+% 0 & 0 & 0 & 0 & 0 & 0 & 1 & t \\
+% 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+% \end{matrix}\right)
+%      C_1 + \int_0^t \left(\begin{matrix}
+%         a_1 (t-s) u_1(s)\\
+% a_1 u_1(s) \\
+% a_2 (t-s) u_2(s) \\
+% a_2 u_2(s) \\
+% a_3 (t-s) u_3(s) \\
+% a_3 u_3(s) \\
+% a_4 (t-s) u_4(s) \\
+% a_4 u_4(s)
+% \end{matrix}\right) ds \\
+% &= \left(\begin{matrix}
+% C_{11} + C_{12} t + a_1 \int_0^t (t-s) u_1(s) ds \\
+% C_{12} + a_1 \int_0^t u_1(s) ds \\
+% C_{13} + C_{14} t + a_2 \int_0^t (t-s) u_2(s) ds \\
+% C_{14} + a_2 \int_0^t u_2(s) ds \\
+% C_{15} + C_{16} t + a_3 \int_0^t (t-s) u_3(s) ds \\
+% C_{16} + a_3 \int_0^t u_3(s) ds \\
+% C_{17} + C_{18} t + a_4 \int_0^t (t-s) u_4(s) ds \\
+% C_{18} + a_4 \int_0^t u_4(s) ds
+% \end{matrix}\right)
+% \end{align*}
+% y la solución sin el termino forzante nos queda 
+% \begin{align*}
+%     x(t) = \left(\begin{matrix}
+%         C_{11} + C_{12} t \\
+%         C_{12} \\
+%         C_{13} + C_{14} t \\
+%         C_{14} \\     
+%         C_{15} + C_{16} t \\
+%         C_{16} \\
+%         C_{17} + C_{18} t \\
+%         C_{18}
+%     \end{matrix}\right)
+% \end{align*}
+% \section{Uso del teorema de Kalman}
+% Vamos a ver si el sistema es controlable, para eso vamos a usar la condición de controlabilidad de Kalman, entonces tenemos que la matriz de controlabilidad es
+% \begin{align*} 
+%    C = Rank[B, AB, A^2 B]
+% \end{align*}
+% Dado que $A^2=0$ entonces $A^2 B=0$ entonces la matriz de controlabilidad es
+% \begin{align*}
+%     C = Rank[B, AB] = Rank\left[\begin{matrix}
+% 0 & 0 & 0 & 0 \\
+% \frac{1}{m} & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 0 \\
+% 0 & \frac{1}{I_x} & 0 & 0 \\
+% 0 & 0 & 0 & 0 \\  
+% 0 & 0 & \frac{1}{I_y} & 0 \\
+% 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & \frac{1}{I_z}
+% \end{matrix}\right]
+% \end{align*}
+% Como $AB$ es
+% \begin{align*}
+%     \left(\begin{matrix}
+% \frac{1}{m} & 0 & 0 & 0 \\
+% 0 & 0 & 0 & 0 \\
+% 0 & \frac{1}{I_x} & 0 & 0 \\
+% 0 & 0 & 0 & 0 \\
+% 0 & 0 & \frac{1}{I_y} & 0 \\
+% 0 & 0 & 0 & 0 \\
+% 0 & 0 & 0 & \frac{1}{I_z} \\
+% 0 & 0 & 0 & 0
+% \end{matrix}\right)
+% \end{align*}
+% por lo tanto la matriz de controlabilidad es
+% \begin{align*}
+%     C = Rank[B, AB] = 8
+% \end{align*}
+% Por lo tanto el sistema es controlable.
+% \section{Conjunto de datos iniciales admisibles}
+% Dado que al linealizar el sistema 
 
 
 
