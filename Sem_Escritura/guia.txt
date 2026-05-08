@@ -1,0 +1,20 @@
+Simulacro de articulo
+
+-Teor. Han-Banach extension de funcionales
+-Teor. de Banach-Schauder aplicacion abierta
+-Teor. de Banach.Steinhaus acotación uniforme
+
+Estructura:
+
+-Abstrac - 10 
+lineas, solo texto
+-Introduction 
+estado del arte, motivación, historia
+-Main results
+3 teoremas: solo enunciados
+-Preeliminares
+Lo necesario para la pruebas 
+Pruebas en citas externas
+-proof of the main results
+-Bibliography
+Automaticamente
