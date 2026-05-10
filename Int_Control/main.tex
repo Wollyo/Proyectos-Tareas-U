@@ -182,9 +182,9 @@ ahora tomando como vector de estados $x=[\delta z, \delta \dot{z}, \delta \phi, 
 \end{align*}
 \section{Solución del sistema linealizado}
 Dado que el modelo es $\dot{x} = Ax+Bu$, entonces tenemos que la solución será de la forma
-\[
- x = e^{At} C_1 + \int_0^t (I + A(t-s)) B u(s) ds
-\]
+\begin{align*}
+    x = e^{At} x(0) + \int_0^t e^{A(t-s)} B  u(s) ds  
+\end{align*}
 con \begin{align*}
     x = \begin{bmatrix}
         \delta \dot{z} \\
@@ -204,6 +204,121 @@ con \begin{align*}
         0 & \frac{1}{I_x}
     \end{bmatrix}
 \end{align*}
+Viendo que la matriz $A$ es un matriz nilpotente entonces la forma exponencial de la matriz es más fácil
+observe que: 
+\begin{align*}
+    A ^2 = \begin{bmatrix}
+        0& 0 & 0 & 0 \\
+        0& 0 & 0 & 0 \\
+        0& 0 & 0 & 0 \\
+        0& 0 & 0 & 0 
+    \end{bmatrix}
+\end{align*}
+Por lo tanto la matriz exponencial de $A$ será
+\begin{align*}
+    e^{At} = I+ At = \begin{bmatrix}
+        1 & t & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & t \\
+        0 & 0 & 0 & 1 \\
+    \end{bmatrix}
+\end{align*}
+en forma matricial tenemos la solución del sistema linealizado es
+\begin{align*}
+    \begin{bmatrix}
+    \delta z(t) \\
+    \delta \dot{z}(t) \\
+    \delta \phi(t) \\
+    \delta \dot{\phi}(t)
+    \end{bmatrix}= \begin{bmatrix}
+                1 & t & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & t \\
+        0 & 0 & 0 & 1 \\
+    \end{bmatrix} \begin{bmatrix}
+        \delta z(0) \\
+        \delta \dot{z}(0) \\
+        \delta \phi(0) \\
+        \delta \dot{\phi}(0)
+    \end{bmatrix} + \int_0^t \begin{bmatrix}
+        1 & t & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & t \\
+        0 & 0 & 0 & 1 \\
+    \end{bmatrix} \begin{bmatrix}
+        0 & 0 \\
+        \frac{1}{m} & 0 \\
+        0 & 0 \\
+        0 & \frac{1}{I_x}
+    \end{bmatrix} \begin{bmatrix}
+        \delta T(s) \\
+        \delta \tau_\phi(s)
+    \end{bmatrix} ds
+\end{align*}
+Y de una manera mas desglosada la solución del sistema será
+\begin{align*}
+    \delta z(t) = \delta z(0)+ t \delta \dot{z}(0)+ \frac{1}{m}\int_0^t (t-s)\delta T(s) ds \\
+    \delta \dot{z}(t) = \delta \dot{z}(0) + \frac{1}{m}\int_0^t (t-s)\delta T(s) ds 
+\end{align*}
+\[
+\delta \phi(t)
+=
+\delta \phi(0)
++
+t\,\delta \dot{\phi}(0)
++
+\frac{1}{I_x}
+\int_{0}^{t}
+(t-\tau)\,\delta \tau_{\phi}(\tau)\, d\tau,
+\]
+
+\[
+\delta \dot{\phi}(t)
+=
+\delta \dot{\phi}(0)
++
+\frac{1}{I_x}
+\int_{0}^{t}
+\delta \tau_{\phi}(\tau)\, d\tau.
+\]
+\tf{Grafica del sistema no se como hacerla}
+\section{Controlabilidad del sistema}
+Ver si el sistema es controlable vamos a hacer uso del teorema de Kalman y dado que nuestra matriz $A$ es
+nilpotente entonces tenemos los siguiente
+ \[
+ \mathcal{C} = [B,AB]
+ \]
+ donde 
+ \[
+ A= \begin{bmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0
+    \end{bmatrix}, \quad AB = \begin{bmatrix}
+        0 & 0 \\
+        \frac{1}{m} & 0 \\
+        0 & 0 \\
+        0 & \frac{1}{I_x}
+    \end{bmatrix}
+ \]
+ Asi $\mathcal{C}$ es 
+  \[
+\begin{bmatrix}
+0 & 0 & \frac{1}{m} & 0 & 0 & 0 & 0 & 0 \\
+\frac{1}{m} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & \frac{1}{I_x} & 0 & 0 & 0 & 0 \\
+0 & \frac{1}{I_x} & 0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix}
+\]
+
+ Por lo tanto $Rank(\mathcal{C})= 4$  dado que todas sus filas son linealmente independientes entonces el sistema es controlable
+\section{Conjunto de datos admisibles}
+Dado que no hay restricciones en las entradas, cualquier vector de estado inicial puede ser llevado al origen (o a cualquier estado 
+deseado) en un tiempo finito, por lo tanto el conjunto de datos iniciales admisibles es $\mathbb{R}^4$.
+
+\section{Control en un tiempo dado}
+
 % \begin{align*}
 %     \begin{cases}
 %         x_1=z, \quad x_2=\dot{z} \\
