@@ -78,10 +78,10 @@ Pendiente
 
 \section{Punto de equilibrio}
 Para hallar el punto de equilibrio del sistema, buscamos las condiciones de vuelo estacionario (hovering). 
-Esto implica que el vehículo se encuentra en una posición fija, sin velocidades ni aceleraciones lineales o angulares
+Esto implica que el vehículo se encuentra en una posición fija, sin velocidades ni aceleraciónes lineales o angulares
 por lo tanto debemos tener
 \begin{itemize}
-    \item Aceleraciones lineales nulas: $\ddot{z}=\ddot{\phi}=\ddot{\theta}=\ddot{\psi}=0$
+    \item aceleraciónes lineales nulas: $\ddot{z}=\ddot{\phi}=\ddot{\theta}=\ddot{\psi}=0$
     \item velocidades lineales nulas: $\dot{z}=\dot{\phi}=\dot{\theta}=\dot{\psi}=0$
 \end{itemize}
 Además que necesitamos que la orientación del "dron" sea tal que no este desbalanceado entonces 
@@ -99,7 +99,7 @@ y para las ecuaciones diferenciales de las aceleraciones angulares entonces tene
 \begin{align*}
     0 = \dot{\theta}\dot{\psi}(I_y - I_z) + \tau_\phi \implies \tau_\phi=0 \\
 \end{align*}
-Viendolo de manera vectorial el punto de equilibrio será 
+Viéndolo de manera vectorial el punto de equilibrio será 
 \begin{align*}
     z_e = z_0 , \quad
     \dot{z}_e = 0, \\ 
@@ -318,7 +318,37 @@ Dado que no hay restricciones en las entradas, cualquier vector de estado inicia
 deseado) en un tiempo finito, por lo tanto el conjunto de datos iniciales admisibles es $\mathbb{R}^4$.
 
 \section{Control en un tiempo dado}
-
+Vamos a separar este proceso en según las ecuaciones que estamos trabajando dado que como podemos ver la solución
+depende de la altura y su aceleración y del angulo y su aceleración osea que podemos coger por pares comenzando 
+por la altura la cual la podemos ver de este modo
+\begin{align*}
+    \frac{d}{dt}
+    \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+    \end{bmatrix}
+    = \begin{bmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{bmatrix}\begin{bmatrix}
+        x_1 \\
+        x_2 \\
+    \end{bmatrix} + 
+    \begin{bmatrix}
+    0 \\
+     \frac{1}{m} 
+    \end{bmatrix}
+    u
+\end{align*}
+dónde 
+\[
+x_1 = \delta z, \quad x_2 = \delta \dot{z}, \quad u = \delta T, m \text{ es la masa del cuadricóptero}
+\]
+sus ecuaciones diferenciales son 
+\[
+\dot{x}_1 = x_2 , \quad \dot{x}_2= \frac{u}{m}
+\]
+dando un estado inicial $(x_1(0),x_2(0))$
 % \begin{align*}
 %     \begin{cases}
 %         x_1=z, \quad x_2=\dot{z} \\
