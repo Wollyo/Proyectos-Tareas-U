@@ -29,15 +29,9 @@ x = np.zeros((N, 4))
 x[0] = x0
 
 for i in range(N - 1):
-
-    # Estado actual
     x_actual = x[i]
 
-    # xdot = A x
     xdot = A @ x_actual
-
-    # Euler:
-    # x(k+1) = x(k) + dt * xdot
     x[i + 1] = x_actual + dt * xdot
 print(x)
 z = x[:, 0]
@@ -47,28 +41,27 @@ dphi = x[:, 3]
 
 plt.figure(figsize=(12,8))
 
-# z
+
 plt.subplot(2,2,1)
 plt.plot(t, z)
 plt.xlabel("t")
 plt.ylabel("z")
 plt.title("Posición z")
 
-# dz
+
 plt.subplot(2,2,2)
 plt.plot(t, dz)
 plt.xlabel("t")
 plt.ylabel("dz")
 plt.title("Velocidad dz")
 
-# phi
+
 plt.subplot(2,2,3)
 plt.plot(t, phi)
 plt.xlabel("t")
 plt.ylabel("phi")
 plt.title("Ángulo phi")
 
-# dphi
 plt.subplot(2,2,4)
 plt.plot(t, dphi)
 plt.xlabel("t")
