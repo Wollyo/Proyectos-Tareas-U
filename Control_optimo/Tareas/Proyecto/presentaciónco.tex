@@ -4,9 +4,16 @@
 % TEMA
 %================================================
 
-\usetheme{Madrid}
+\usetheme{Boadilla}
 \usecolortheme{default}
 
+%================================================
+% FUENTES
+%================================================
+
+\usefonttheme{professionalfonts}
+
+\usepackage{lmodern}
 %================================================
 % IDIOMA Y CODIFICACIÓN
 %================================================
@@ -109,6 +116,10 @@
 \setbeamercolor{structure}{fg=azul}
 \setbeamercolor{frametitle}{bg=azul, fg=white}
 \setbeamercolor{title}{fg=azul}
+\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize subitem}{--}
+\setbeamertemplate{section in toc}{$\blacktriangleright$ \inserttocsection}
+
 
 %================================================
 % COMANDOS PERSONALIZADOS
@@ -118,13 +129,14 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\tb}[1]{\textbf{#1}}
+\newcommand{\ti}[1]{\textit{#1}}
 
 %================================================
 % DATOS
 %================================================
 
-\title{Establishing wMelPop Wolbachia Infection among Wild
-Aedes aegypti Females by Optimal Control Approach}
+\title{Establecimiento de la infección por Wolbachia wMelPop en hembras silvestres de Aedes aegypti mediante control óptimo}
 \author{Joan Sebastian Ramirez Sanchez}
 \institute{Universidad del Valle}
 \date{\today}
@@ -146,19 +158,83 @@ Aedes aegypti Females by Optimal Control Approach}
 \end{frame}
 
 %================================================
-\section{Introducción}
+\section{Contexto biológico}
 %================================================
 
-\begin{frame}{Introducción}
-
+\begin{frame}{Contexto biológico}
 \begin{itemize}
-    \item Punto importante.
-    \item Motivación.
-    \item Aplicación matemática.
+    \item El mosquito \ti{Aedes aegypti} es el principal transmisor de dengue, Zika y chikungunya.
+    \item \ti{Wolbachia} es la bacteria intracelular presente en muchos insectos. En los mosquitos reduce su capacidad de transmitir virus.
+    \item La cepa \ti{wMelPop}
+    \begin{itemize}
+        \item[--] Es la que mejor actúa ante la reproducción del virus dentro del mosquito
+        \item[--]Pero genera un \tb{alto costo biológico}: reduce la fecundidad de las hembras, la viabilidad de los huevos y la longevidad de los mosquitos infectados.
+    \end{itemize}
+    \item  Incompatibilidad citoplasma (\tb{CI}).
+    Es un fenómeno reproductivo inducido por \ti{Wolbachia}
+    \begin{itemize}
+        \item[--] Cuando un macho infectado con \ti{Wolbachia} se aparea con una hembra no infectada, los huevos no eclosionan.
+        \item[--] Cuando una hembra infectada se aparea con un macho no infectado, los huevos eclosionan normalmente y las crías heredan la infección.
+    \end{itemize}
 \end{itemize}
 
 \end{frame}
 
+\begin{frame}{Modelo de competencia entre hembras (sin control)}
+\begin{itemize}
+    \item \textbf{Variables de estado:}
+    \begin{itemize}
+        \item $F(t)$: número de hembras silvestres (no infectadas)
+        \item $W(t)$: número de hembras portadoras de \textit{Wolbachia}
+    \end{itemize}
+    \item \textbf{Ecuaciones del modelo:}
+    \begin{align*}
+        \frac{dF}{dt} &= \left[\Psi_f - \frac{r_f}{K_f}(F+W)\right] F 
+                         \left(\frac{F}{K_0} - 1\right) - \delta_f F,\\
+        \frac{dW}{dt} &= \left[\Psi_w - \frac{r_w}{K_w}(F+W)\right] W 
+                         - \delta_w W.
+    \end{align*}
+\end{itemize}
+
+\end{frame}
+\begin{frame}{Parámetros del modelo (I) – Natalidad y mortalidad}
+\begin{itemize}
+    \item $\Psi_f$, $\Psi_w$: tasas de \tb{nacimiento} de hembras adultas 
+          (en ausencia de competencia) para las poblaciones silvestre e 
+          infectada, respectivamente.
+    \item $\delta_f$, $\delta_w$: tasas de \tb{mortalidad} natural de 
+          hembras adultas.
+    \item $r_f = \Psi_f - \delta_f$, \quad $r_w = \Psi_w - \delta_w$: 
+          tasas intrínsecas de crecimiento (sin competencia).
+    \item \textbf{Condición biológica:}  
+          $\Psi_f > \Psi_w$ \quad y \quad $\delta_f < \delta_w$  
+          $\Rightarrow$ las hembras silvestres son más fértiles y viven más 
+          que las portadoras de \ti{wMelPop}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modelo de competencia entre hembras (sin control)}
+    \begin{itemize}
+        \item \textbf{Características principales:}
+        \begin{itemize}
+            \item Las hembras silvestres son más fértiles y longevas 
+              ($\Psi_f>\Psi_w,\;\delta_f<\delta_w,\;K_f>K_w$).
+            \item El término $\left(\frac{F}{K_0}-1\right)$ introduce un 
+              \tb{efecto Allee} (depensación): cuando $F$ es baja, 
+              las hembras silvestres tienen menos probabilidad de 
+              encontrar parejas no infectadas y su reclutamiento se 
+              vuelve negativo.
+            \item El sistema posee un \tb{umbral crítico} $K_{\flat}$ 
+              (tamaño mínimo viable de $F$):
+              \begin{itemize}
+                  \item Si $F < K_{\flat}$, la población silvestre 
+                        se extingue y la infección se fija.
+                  \item Si $F > K_{\flat}$, las silvestres persisten 
+                        y \textit{Wolbachia} desaparece.
+        \end{itemize}
+    \end{itemize}
+    \end{itemize}
+\end{frame}
 
 
 \end{document}

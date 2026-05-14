@@ -1,7 +1,17 @@
 {
+    "cSpell.language": "es",
+    "editor.minimap.enabled": false,
+    "latex-workshop.view.pdf.invert": 1,
+    "spellright.language": [
+        "en",
+        "es"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
     "cSpell.words": [
-        "cuadricóptero",
-        "Hamiltoniana",
-        "linealizarlo"
+        "Zika"
     ]
 }
