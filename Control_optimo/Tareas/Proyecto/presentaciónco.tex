@@ -235,6 +235,47 @@
     \end{itemize}
     \end{itemize}
 \end{frame}
+\begin{frame}{Modelo de competencia entre hembras (con control)}
+    El control $u(t)$ será el número de mosquitos con \ti{Wolbachia} liberados en un dia $t$ en 
+    en el campo, así el sistema nos queda
+    \begin{align*}
+                \frac{dF}{dt} &= \left[\Psi_f - \frac{r_f}{K_f}(F+W)\right] F 
+                         \left(\frac{F}{K_0} - 1\right) - \delta_f F,\\
+        \frac{dW}{dt} &= \left[\Psi_w - \frac{r_w}{K_w}(F+W)\right] W 
+                         - \delta_w W + u(t).
+    \end{align*}
+    con $u(t) \in [0, u_{\max}]$, con $u_{\max}$ la capacidad máxima 
+              diaria de producción en laboratorio.
+\end{frame}
+\begin{frame}{Condiciones de frontera}
+    tenemos que las condiciones de fronetera serán
+    \begin{itemize}
+        \item Inicio: $F(0) = K_f$ (densidad moderada de silvestres, 
+              $K_f < K_{\flat}$), \; $W(0) = 0$.
+        \item Meta: $F(T) = F_T < K$ (por debajo del umbral de extinción 
+              $K_{\flat}$).
+    \end{itemize}
+\end{frame}
+\begin{frame}{Objectivo de control: Funcional}
+    \begin{align*}
+        \min_{0\leq u(t) \leq u_{\text{max}}}J(u,T) = \min_{0\leq u(t) \leq u_{\text{max}}}\int_{0}^{T}(1+\frac{C}{2}u^2(t))dt
+    \end{align*}
+    todo esto para $0<T<\infty$
+\end{frame}
+\begin{frame}{Principio del máximo de Pontryagin}
+    El hamiltoneano tenemos que es 
+    \[
+    H(F,W,u,\lambda_1,\lambda_2)= -1-\frac{C}{2}u^2 + \lambda_1 \{ \left[\Psi_f - \frac{r_f}{K_f}(F+W)\right] F 
+                         \left(\frac{F}{K_0} - 1\right) - \delta_f F\}
+    \]
+    Con las siguientes funciones adjuntas
+    \begin{align*}
+        \frac{d \lambda_1}{dt} = -\frac{\partial H (F^*,W^*,u^*,\lambda_1,\lambda_2)}{\partial F} \\
+         \frac{d \lambda_2}{dt} = -\frac{\partial H (F^*,W^*,u^*,\lambda_1,\lambda_2)}{\partial W} \\
+    \end{align*}
+    y la condición de transversalidad $\lambda_2(T^*)=0$
+\end{frame}
+
 
 
 \end{document}
