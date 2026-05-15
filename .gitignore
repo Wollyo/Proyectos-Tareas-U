@@ -6,3 +6,22 @@
 *.toc
 *.out
 *.gz
+# Archivos auxiliares LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+
+
+
+# VSCode
+.vscode/
