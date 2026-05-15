@@ -1,0 +1,75 @@
+%-------------------------------------------------------------
+%  Package: beamertheme-SimplePlus
+%  Author: Pin-Yen Huang (pyhuang97@gmail.com)
+%  Version: 1.1, 2025-01-07
+%  Link: https://github.com/pm25/SimplePlus-BeamerTheme
+%  This is free and unencumbered software released into the
+%  public domain; see <http://unlicense.org> for details.
+%-------------------------------------------------------------
+
+%--------------------------------------
+%  Inner Theme Settings
+%--------------------------------------
+
+\pgfdeclareverticalshading[lower.bg,upper.bg]{bmb@transition}{200cm}{%
+color(0pt)=(lower.bg); color(2pt)=(lower.bg); color(4pt)=(lower.bg)}
+
+\setbeamersize{text margin left=3em,text margin right=3em}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{enumerate subitem}[default]
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{itemize subitem}[circle]
+
+% table of contents (overview) settings
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}{%
+    \leavevmode
+    \leftskip=3.2em
+    \rlap{\hskip-2em\inserttocsectionnumber.\inserttocsubsectionnumber}
+    \inserttocsubsection\par
+}
+
+% frame title customization
+\setbeamertemplate{frametitle}{%
+    \vspace*{0.2em}
+    \bfseries\insertframetitle\par
+    \vskip-6pt
+    \hrulefill\vspace{-0.1em}
+}
+
+% title page customization
+\setbeamertemplate{title page}{%
+    \vspace{3em} % Se redujo aún más para subir todo
+    \begingroup
+    \centering
+    % ------------------------
+    \begin{beamercolorbox}[sep=10pt,center]{title}
+        \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip0.3em\par % Menos espacio después del título
+    % ------------------------
+    \begin{beamercolorbox}[sep=6pt,center]{author}
+        \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \vskip-0.8em % Se redujo más para subir el autor
+    % ------------------------
+    \begin{beamercolorbox}[sep=6pt,center]{institute}
+        \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \vskip-0.5em % Se redujo para acercar la institución al autor
+    % ------------------------
+    \begin{beamercolorbox}[sep=6pt,center]{date}
+        \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.2em % Se redujo más
+    % ------------------------
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \endgroup
+    \vfill
+}
+

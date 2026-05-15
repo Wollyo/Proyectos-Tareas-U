@@ -1,153 +1,37 @@
-\documentclass[aspectratio=169]{beamer}
-
-%================================================
-% TEMA
-%================================================
-
-\usetheme{Boadilla}
-\usecolortheme{default}
-
-%================================================
-% FUENTES
-%================================================
-
-\usefonttheme{professionalfonts}
-
+\documentclass[10pt, aspectratio=169]{beamer}
 \usepackage{lmodern}
-%================================================
-% IDIOMA Y CODIFICACIÓN
-%================================================
-
-\usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-
-%================================================
-% MATEMÁTICAS
-%================================================
-
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{mathtools}
-\usepackage{mathrsfs}
-\usepackage{bm}
-\usepackage{bbm}
-\usepackage{dsfont}
-\usepackage{physics}
-\usepackage{cancel}
-\usepackage{siunitx}
-\usepackage{esint}
-\usepackage{tensor}
-\usepackage{stmaryrd}
-\usepackage{yhmath}
-\usepackage{cases}
-\usepackage{empheq}
-\usepackage{systeme}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{nicematrix}
-
-%================================================
-% GRÁFICOS Y FIGURAS
-%================================================
-
-\usepackage{graphicx}
-\usepackage{subcaption}
-\usepackage{float}
-\usepackage{wrapfig}
-
-%================================================
-% TIKZ Y DIAGRAMAS
-%================================================
-
-\usepackage{tikz}
-\usetikzlibrary{
-    arrows.meta,
-    positioning,
-    calc,
-    shapes,
-    decorations.pathreplacing,
-    matrix,
-    fit
-}
-
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
-
-%================================================
-% TABLAS
-%================================================
-
-\usepackage{booktabs}
-\usepackage{tabularx}
-\usepackage{longtable}
-
-%================================================
-% CÓDIGO
-%================================================
-
-\usepackage{listings}
-\usepackage{xcolor}
-
-\definecolor{codebg}{RGB}{245,245,245}
-
-\lstset{
-    backgroundcolor=\color{codebg},
-    basicstyle=\ttfamily\small,
-    frame=single,
-    breaklines=true,
-    columns=fullflexible
-}
-
-%================================================
-% HIPERVÍNCULOS
-%================================================
-
+\usetheme{SimplePlus}
+\usefonttheme{professionalfonts}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\usepackage{lmodern}
 \usepackage{hyperref}
-
-%================================================
-% COLORES
-%================================================
-
-\definecolor{azul}{RGB}{20,40,120}
-
-\setbeamercolor{structure}{fg=azul}
-\setbeamercolor{frametitle}{bg=azul, fg=white}
-\setbeamercolor{title}{fg=azul}
-\setbeamertemplate{itemize item}{\textbullet}
-\setbeamertemplate{itemize subitem}{--}
-\setbeamertemplate{section in toc}{$\blacktriangleright$ \inserttocsection}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{ragged2e}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage[backend=biber]{biblatex}
+\newcommand{\tb}{\textbf}
+\newcommand{\ti}{\textit}
+\bibliography{reference}
 
 
-%================================================
-% COMANDOS PERSONALIZADOS
-%================================================
+%--------------------------------------------------%
 
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\tb}[1]{\textbf{#1}}
-\newcommand{\ti}[1]{\textit{#1}}
+\title{Curvatura en variedades diferenciables y curvatura seccional en planos tangentes}
 
-%================================================
-% DATOS
-%================================================
+\author{Juan David Cetre Barros}
 
-\title{Establecimiento de la infección por Wolbachia wMelPop en hembras silvestres de Aedes aegypti mediante control óptimo}
-\author{Joan Sebastian Ramirez Sanchez}
-\institute{Universidad del Valle}
-\date{\today}
+\institute{ Departamento de Matemáticas \\
+   Universidad del Valle}
 
-%================================================
-% DOCUMENTO
-%================================================
+%--------------------------------------------------%
 
 \begin{document}
 
-%------------------------------------------------
 \begin{frame}
     \titlepage%
 \end{frame}
@@ -220,11 +104,11 @@
             \item Las hembras silvestres son más fértiles y longevas 
               ($\Psi_f>\Psi_w,\;\delta_f<\delta_w,\;K_f>K_w$).
             \item El término $\left(\frac{F}{K_0}-1\right)$ introduce un 
-              \tb{efecto Allee} (depensación): cuando $F$ es baja, 
+              \textbf{efecto Allee} (depensación): cuando $F$ es baja, 
               las hembras silvestres tienen menos probabilidad de 
               encontrar parejas no infectadas y su reclutamiento se 
               vuelve negativo.
-            \item El sistema posee un \tb{umbral crítico} $K_{\flat}$ 
+            \item El sistema posee un \textbf{umbral crítico} $K_{\flat}$ 
               (tamaño mínimo viable de $F$):
               \begin{itemize}
                   \item Si $F < K_{\flat}$, la población silvestre 
@@ -235,6 +119,5 @@
     \end{itemize}
     \end{itemize}
 \end{frame}
-
 
 \end{document}
