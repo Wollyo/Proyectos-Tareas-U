@@ -1,0 +1,143 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage[a4paper,margin=2cm]{geometry}
+\author{Joan Sanchez}
+
+\begin{document}
+
+\begin{center}
+    \textbf{GUÍA PARA DERIVAR POR DEFINICIÓN}
+        \vspace{0.2cm}
+    \rule{0.8\textwidth}{0.8pt}
+\end{center}
+En este texto vamos a explicar paso a paso cómo derivar una función usando la definición de derivada. Además, veremos cuáles son los errores más comunes y qué ideas algebraicas debemos manejar correctamente, de primeras vamos a dar la definicón de la derivada de una funciones
+\section*{Definición}
+Dada una función $f(x)$ tenemos que su derívada denotada por $f'(x)$ es
+\begin{align*}
+    f'(x) = \lim_{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}.
+\end{align*}
+\section*{Ejemplo sencillo}
+Un ejercicio clásico de cálculo es el siguiente, dada la siguiente función
+\[
+f(x)=x^2.
+\]
+Derive por definición
+\begin{enumerate}
+    \item Comenzamos reemplazando la función en la definición:
+\begin{align*}
+f'(x)&=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}=\lim_{h\to0}\frac{(x+h)^2-x^2}{h}.
+\end{align*}
+
+En este punto aparece algo importante: si reemplazamos directamente \(h=0\), $\frac{0}{0}$ lo cual es una \textbf{forma indeterminada}. Esto no significa que el límite no exista, sino que no podemos concluir su valor todavía. Debemos simplificar la expresión antes de evaluar el límite.
+
+\item Ahora simplificamos el numerador.
+Usamos la identidad del binomio $(a+b)^2=a^2+2ab+b^2$.
+Por lo tanto, ell numerador se convierte en
+\[
+x^2+2xh+h^2-x^2=
+2xh+h^2.
+\]
+Entonces,
+\[
+f'(x)=\lim_{h\to0}\frac{2xh+h^2}{h}.
+\]
+
+\item Factorizamos \(h\) en el numerador:
+\[
+f'(x)=\lim_{h\to 0}\frac{h(2x+h)}{h}.
+\]
+
+Como \(h\neq0\) dentro del límite, podemos simplificar y evaular el limite para obtener lo siguiente
+\[
+f'(x)=2x.
+\]
+\end{enumerate}
+
+La idea clave de este procedimiento es que la definición de derivada casi siempre produce expresiones complicadas que deben simplificarse algebraicamente antes de calcular el límite. En muchos ejercicios la dificultad no está en el límite, sino en manipular correctamente la expresión algebraica.
+
+\section*{Errores comunes}
+\begin{enumerate}
+    \item Reemplazar \(h=0\) inmediatamente y concluir que el límite no existe por obtener \(0/0\).
+    
+    \item Desarrollar incorrectamente el binomio: $(x+h)^2\neq x^2+h^2$.
+    
+    \item Cancelar \(h\) antes de factorizar correctamente, por ejemplo,
+    \[
+    \frac{2xh+h^2}{h} \neq 2x+h^2\]
+cuando en realidad debe factorizarse primero:
+\[
+\frac{2xh+h^2}{h}
+=
+\frac{h(2x+h)}{h}
+=
+2x+h.
+\]
+    \end{enumerate}
+\section*{Ejemplo de potenciacion con raíces}
+
+A medida que las funciones se vuelven más complejas, derivar por definición requiere más manipulación algebraica. Uno de los casos más comunes es cuando aparecen raíces cuadradas, ya que normalmente debemos racionalizar. Por ejemplo, consideremos la función
+
+\[
+f(x)=\sqrt{x}.
+\]
+
+Usando la definición de derivada:
+
+\[
+f'(x)=\lim_{h\to0}\frac{\sqrt{x+h}-\sqrt{x}}{h}.
+\]
+
+Si reemplazamos directamente \(h=0\), obtenemos $0/0$
+que es una forma indeterminada. Esto significa que todavía no podemos evaluar el límite y debemos simplificar la expresión.
+En este caso usamos racionalización multiplicando por el conjugado:
+
+\[
+\frac{\sqrt{x+h}-\sqrt{x}}{h}
+\cdot
+\frac{\sqrt{x+h}+\sqrt{x}}{\sqrt{x+h}+\sqrt{x}}.
+\]
+
+Aquí usamos una identidad importante llamada diferencia de cuadrados
+    $(a-b)(a+b)=a^2-b^2$. Aplicándola al numerador:
+\[
+(\sqrt{x+h}-\sqrt{x})(\sqrt{x+h}+\sqrt{x})
+=(x+h)-x=h.
+\]
+Entonces la expresión queda:
+\[
+f'(x)=\lim_{h\to0}
+\frac{h}{h(\sqrt{x+h}+\sqrt{x})}
+\]
+y al evaluar el límite obtenemos
+
+\[
+f'(x)=\frac{1}{2\sqrt{x}}.
+\]
+
+Este tipo de ejercicios suelen ser difíciles porque no basta con expandir expresiones algebraicas; también es necesario reconocer identidades y técnicas de simplificación como la usada en este caso para racionalizar. Por eso es fundamental practicar con una variedad de funciones para familiarizarse con los diferentes tipos de manipulación algebraica que pueden surgir al derivar por definición.
+
+ \section*{Ejercicios propuestos} 
+Derive usando la definición:
+\begin{enumerate}
+    \item
+    $
+    f(x)=3x
+    $
+
+    \item 
+    $
+    f(x)=x^2+3x
+    $
+
+    \item
+    $
+    f(x)=\frac{1}{x}
+    $
+
+    \item
+$
+f(x)=\frac{x+1}{x-1}
+$
+\end{enumerate}
+\end{document}
