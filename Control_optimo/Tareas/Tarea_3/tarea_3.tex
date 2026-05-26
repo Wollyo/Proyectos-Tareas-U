@@ -16,22 +16,181 @@
 \newcommand*{\assignment}{Tarea 3 de 3}
 \newcommand*{\dated}{\today}
 \newcommand{\tf}{\textbf}
-
+\newcommand{\la}{\lambda}
 \begin{document}
 %Ejercicios propuestos 17.1, 17.3, 17.5, 20.2, 20.3
 \maketitle
-\textbf{Ejercicio 17.1} Resolver
+\section*{Ejercicio 17.1}
+    Resolver
+    \[
+    \text{max} \{8x_1(18)+4x_2 (18)\}
+    \]
+    Sujeto a 
+    \begin{align*}
+        x_1'(t) =x_1(t)+x_2(t) , \quad x_1(0) = 15, \\
+        x_2'(t) = 2 x_1(t)- u(t), \quad x_2(0)= 20, \\
+        0 \leq u(t) \leq 1.
+    \end{align*}
+    Observe que la formula general del hamiltoneano se puede ver como 
+    \[
+    H = \lambda_0 L+ \lambda_1 f+ \cdots \lambda_nf_n
+    \]
+    En nuestro caso $L = 0$ por lo tanto tenemos que 
+    \[
+    H(t,x_1,x_2,\lambda_1,\lambda_2) = \lambda_1 (x_1 + x_2) + \lambda_2 (2x_1 - u)
+    \]
+    donde las ecuaciones adjuntas están dadas por 
+    \begin{align*}
+        \lambda'_1 &= - \frac{\partial H}{\partial x_1} = -(\lambda_1+2 \la_2) \quad \lambda'_2 = -\frac{\partial H}{\partial x_2} = -\la_1
+    \end{align*}
+    y
+    \begin{align*}
+        \psi (t) = \frac{\partial H}{\partial u} = -\lambda_2
+    \end{align*}
+    así si queremos maximizar el hamiltoneano $H$ con respecto a $u$ tenemos que hacer uso del signo de $\la_2$
+    \begin{itemize}
+        \item si $ \la_2 > 0$ entonces $-\la_2 <0$ entonces se elige $u$ mínimo $u*= 0$.
+        \item si $\la_2 <0$ entonces $- \la_2 >0$ entonces se elige $u*=1$. 
+        \item si $\la_2= 0$ entonces es un caso singular lo cual no ocurre
+    \end{itemize}
+    por lo tanto tenemos el siguiente sistema
+    \begin{align*}
+    \begin{pmatrix}
+        \lambda_1' \\
+        \lambda_2'
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+        -1 & -2 \\
+        -1 & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+        \lambda_1 \\
+        \lambda_2
+        \end{pmatrix},
+        \qquad
+        \begin{pmatrix}
+        \lambda_1(18) \\
+        \lambda_2(18)
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+        8 \\
+        4
+        \end{pmatrix}.
+    \end{align*}
+    con valores propios $v_1 = 1, \quad v_2=-2$ y vectores propios $(1,-1)^T$ y $(2,1)^T$ respectivamente, la solución general:
+    \[
+    \la_1(t) = c_1 e^t+2c_2e^{-2t}, \quad \la_2 (t)= -c_1e^t+c_2e^{-2t}
+    \] 
+    aplicando las condiciones finales nos queda que 
+    \[
+    c_1 e^{18} + 2c_2 e^{-36} = 8,
+    \qquad
+    -c_1 e^{18} + c_2 e^{-36} = 4.
+    \]
+    Sumando ambas ecuaciones
+    \[
+    3c_2 e^{-36} = 12
+    \;\Rightarrow\;
+    c_2 = 4e^{36}.
+    \]
+    Sustituyendo: 
+    \[
+    -c_1 e^{18} + 4 = 4
+    \;\Rightarrow\;
+    c_1 = 0.
+    \]
+    Por lo tanto
+    \[
+    \lambda_1(t) = 8e^{36-2t},
+    \qquad
+    \lambda_2(t) = 4e^{36-2t}.
+    \]
+    Como $\la_2 >0$ para todo $t$, el control óptimo es $u*(t) = 0$, asi el sistema nos queda 
+    \begin{align*}
+        x'_1 = x_1+x_2, \quad x'_2 = 2x_1
+    \end{align*}
+    con las mismas condiciones y viéndolo de forma matricial  $x'=Ax$ con $A = \begin{pmatrix}
+        1 & 1 \\
+        2 & 0 
+    \end{pmatrix}.
+    $
+    cuyos valores propios son $\{2,-1\}$ y vectores propios $\{(1,1)^T , (1,-2)^T\}$ respectivamente, por lo tanto la solución queda 
+    \begin{align*}
+        x_1(t) = d_1 e^{2t}+d_2 e^{-t}, \quad x_2(t) = d_1 e ^{2t} -2d_2 e^{-t} 
+    \end{align*}
+    con las condiciones iniciales 
+    \[
+    d_1+d_2= 15, d_1 -2d_2= 20 \Rightarrow d_1 = \frac{50}{3}, d_2= -\frac{5}{3}.
+    \]
+    Asi la solución es :
+    \[
+    x_1(t) = \frac{50}{3} e^{2t} -\frac{5}{3}e^{-t}, \quad x_2(t) = \frac{50}{3} e ^{2t} +\frac{10}{3} e^{-t} 
+    \]
+    y el funcional objetivo
+    \[
+    J^*
+    =
+    8x_1(18) + 4x_2(18)
+    =
+    8\left(
+    \frac{50}{3}e^{36}
+    -
+    \frac{5}{3}e^{-18}
+    \right)
+    +
+    4\left(
+    \frac{50}{3}e^{36}
+    +
+    \frac{10}{3}e^{-18}
+    \right)
+    \]
+
+    \[
+    =
+    \frac{400}{3}e^{36}
+    -
+    \frac{40}{3}e^{-18}
+    +
+    \frac{200}{3}e^{36}
+    +
+    \frac{40}{3}e^{-18}
+    =
+    \frac{600}{3}e^{36}
+    =
+    200e^{36}.
+    \]  
+
+    
+    
+\section*{Ejercicio 17.3}
+Resolver
 \[
-\text{max}8x_1(18)+4x_2
+\begin{aligned}
+\min_{u} \quad & \int_0^1 u(t)\,dt \\
+\text{subject to} \quad &
+x'(t)=x(t)-u(t), \\
+& x(0)=1,\quad x(1)=0, \\
+& 1 \le u(t) \le 2.
+\end{aligned}
 \]
-Sujeto a 
-\begin{align*}
-    x_1'(t) =x_1(t)+x_2(t) , \quad x_1(0) = 15, \\
-    x_2'(t) = 2 x_1(t)- u(t), \quad x_2(0)= 20, \\
-    0 \leq u(t) \leq 1.
-\end{align*}
-Comenzamos partiendo con el Hamiltoneano el cual es 
+
+Tomando el hamiltoneano
 \[
-H(t,x_1,x_2,\lambda_1,\lambda_2) = 
+H(t,x,u)=  u+\la (x-u)
 \]
+donde su ecuación adjunta es 
+ \[
+ \la' = -\frac{\partial H}{\partial x} = -\la  \Rightarrow \la = ce^{-t}.
+ \]
+ Observe
+ \[
+ \psi (t) = \frac{\partial H}{\partial u} =1 -\la 
+ \]
+Dado que queremos minimizar el hamiltoneano vamos a analizar el signo de $\la$
+\begin{itemize}
+    \item si $1-\la <0 $ 
+\end{itemize}
+
 \end{document}
