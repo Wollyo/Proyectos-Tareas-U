@@ -160,10 +160,7 @@
     \frac{600}{3}e^{36}
     =
     200e^{36}.
-    \]  
-
-    
-    
+    \]   
 \section*{Ejercicio 17.3}
 Resolver
 \[
@@ -178,7 +175,7 @@ x'(t)=x(t)-u(t), \\
 
 Tomando el hamiltoneano
 \[
-H(t,x,u)=  u+\la (x-u)
+H(t,x,u)=  u+\la (x-u) = \la x +u(1-\la)
 \]
 donde su ecuación adjunta es 
  \[
@@ -190,7 +187,63 @@ donde su ecuación adjunta es
  \]
 Dado que queremos minimizar el hamiltoneano vamos a analizar el signo de $\la$
 \begin{itemize}
-    \item si $1-\la <0 $ 
+    \item si $1-\la <0$ el coeficiente en el hamiltoneano de u séra negativo  por lo tanto toca escoger el mayor $u*=2$
+    \item  si $1-\la >0$ el coeficiente será positivo por tanto como buscamos minimizar escogemos $u*=1$
+    \item si $1-\la = 0$ es un caso singular
 \end{itemize}
+Entonces tenemos que 
+\begin{align*}
+    u^*=1 \iff 1-\lambda>0 \iff 1-ce^{-t}>0 \iff t> \ln(c),\\
+    u^*=2 \iff 1-\la <0 \iff  1-ce^{-t}<0 \iff t< \ln(c).
+\end{align*}
+por el resultado anterior tenemos que $c\leq0$ no puede darse por tanto vamos a ver que pasa si $0<c<1$ entonces
+$1-ce^{-t}>0$ por lo tanto $u*=1$ asi $x'=x-1$ lo que nos da resultado  $x=ce{t}+1$ lo cual no cumple la condición de $x(0)=1$ por lo tanto
+$c>1$
+por lo tanto resolviendo por tramos para $0\leq t< \ln(c)$ tenemos que $x'=x-2$ donde nos queda 
+\[
+x=2-e^t
+\] 
+donde por la continuidad entonces en $t=\ln(c)$ tenemos que $x(\ln(c))=2-c$,
+para el tramo de $\ln(c)<t\leq 1$ tenemos que $u=1$ y $x'=x-1$, lo que nos da $x=de^t+1$ y usando la condicion $x(\ln(c))=2-c$
+tenemos que $d= \frac{1}{c}-1$
+por lo tanto tenemos que 
+\[
+x(t)= (\frac{1}{c}-1)e^t+1
+\]
+y haciendo uso de $x(1)=0$ obtenemos que $c= \frac{e}{e-1}$, por lo tanto tenemos que 
+
+\[
+u^*(t)=
+\begin{cases}
+2, & 0 \le t \le t_s,\\[4pt]
+1, & t_s < t \le 1,
+\end{cases}
+\qquad
+\text{con } t_s = 1-\ln(e-1).
+\]
+con
+    
+\[
+x^*(t)=
+\begin{cases}
+2-e^t, & 0 \le t \le t_s,\\[4pt]
+1+\left(1-e^{t_s}\right)e^{\,t-t_s},
+& t_s < t \le 1.
+\end{cases}
+\]
+y el funcional nos da
+\[
+J_{\min}=2-\ln(e-1).
+\]
+\section*{Ejercicio 17.5}
+Solucione 
+\[
+ \min \int_0^2 x(t)^2 dt
+\]
+Sujeto a $x'(t)=u(t), x(0)=0,x(2)=1, -1\leq u(t)\leq 1$.
+Tenemos que el hamiltoneano generalizado $\lambda_0=1$ es 
+\[
+H(t,x,u,\lambda)= x^2+\la u
+\]
 
 \end{document}
