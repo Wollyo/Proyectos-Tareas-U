@@ -245,5 +245,207 @@ Tenemos que el hamiltoneano generalizado $\lambda_0=1$ es
 \[
 H(t,x,u,\lambda)= x^2+\la u
 \]
+y sea 
+\[
+\psi(t) = \frac{\partial H}{\partial u} = \lambda , \quad  \la' = -\frac{\partial H}{\partial x}  =-2x.
+\]
+\begin{itemize}
+    \item si $\la <0$ entonces $u=1$
+    \item si $\lambda >0$ entonces $u=-1$
+    \item si $\lambda =0$ entonces es un caso singular
+\end{itemize}
+es decir 
+\begin{align}
+    \begin{cases}
+u^*(t) = 1, & \lambda(t) < 0,\\[4pt]
+u^*(t) = -1, & \lambda(t) > 0,\\[4pt]
+u^*(t) \in [-1,1], & \lambda(t) = 0.
+    \end{cases}
+\end{align}
+Como buscamos minimizar el funcional donde el integrando es $x^2$ entonces lo que buscamos es
+tener a $x$ lo más cerca de $0$ posible, supongamos que $\la = 0$ entonces $\la' = 0$ y por la ecuación
+adjunta tenemos que $\la = -2x = 0$ a lo que equivale a $x=0$ pero observe que para llegar $x(2)=1$  partiendo de $0$, tenemos que aumentar 
+$x$ usando $u$, la pendiente máxima es $u=1$ (cota superior).
+entonces si $u=1$ en un tiempo $\tau$ entonces $x$ determinado por $x=\int _0^2 u(t)dt=x(2)-x(0)=1$, por lo tanto
+\[
+u(t) = \begin{cases}
+    0, & 0\leq t <1\\
+    1, & 1\leq t \leq 2
+\end{cases}
+\]
+Verifiquemos que este control cumple las condiciones de optimalidad 
+\textit{Tramo 1:} $0 \le t < 1$, $u=0$, $x=0$.
+\[
+x'(t)=0 \quad \text{(se cumple)}.
+\]
+Ecuación adjunta: $\lambda' = -2x = 0 \Rightarrow \lambda$ constante. 
+Para que $u=0$ sea óptimo (interior al intervalo) debe cumplirse $\frac{\partial H}{\partial u} = \lambda = 0$, luego $\lambda(t)=0$ en este tramo.
+
+\textit{Tramo 2:} $1 \le t \le 2$, $u=1$.
+\[
+x'(t)=1, \quad x(1)=0 \quad \Rightarrow \quad x(t)=t-1.
+\]
+Adjunta : $\lambda'(t) = -2(t-1)$. Integrando:
+\[
+\lambda(t) = -\int 2(t-1)\,dt = -(t-1)^2 + C.
+\]
+Continuidad de $\lambda$ en $t=1$: $\lambda(1)=0$ (del tramo anterior) $\Rightarrow 0 = 0 + C \Rightarrow C=0$. Por tanto,
+\[
+\lambda(t) = -(t-1)^2 < 0 \quad \text{para } t>1.
+\]
+Como $\lambda<0$, la condición de mínimo exige $u=1$ (el máximo valor), lo cual coincide con el control propuesto.
+
+Condición final: $x(2)=2-1=1$, que satisface $x(2)=1$. donde el funcional evaluado es
+\[
+J^* = \int_0^2 x(t)^2 dt = \int_1^2 (t-1)^2 dt = \left[ \frac{(t-1)^3}{3} \right]_{1}^{2} = \frac{1}{3}.
+\]
+así
+\[
+u^*(t) = \begin{cases}
+0, & 0 \le t < 1,\\
+1, & 1 \le t \le 2
+\end{cases}
+\]
+La trayectoria óptima del estado:
+\[
+x^*(t) = \max(0,\, t-1)
+\]
+El valor mínimo del funcional:
+\[
+J_{\min} = \frac{1}{3}
+\]
+\section{Ejercicio 20.2}
+Sea $x_0 > x_1 > 0$. Resolver
+\[
+\min_{u, T} \frac{1}{2} \int_0^T u(t)^2 \, dt
+\]
+sujeto a
+\[
+x'(t) = x(t) + u(t), \quad x(0) = x_0, \quad x(T) = x_1.
+\]
+El hamiltoneano es el siguiente 
+\[
+H(t,x,u,\lambda) = \frac{1}{2} u^2 + \lambda (x+u).
+\]
+y la ecuación adjunta es
+\[
+\lambda' = -\frac{\partial H}{\partial x} = -\lambda \quad \Rightarrow \quad \lambda(t) = ce^{-t}.
+\]
+y la condición de optimalidad con respecto a $u$ es
+\[
+\frac{\partial H}{\partial u} = u + \lambda = 0 \Rightarrow u^*(t) = -\lambda(t) = -ce^{-t}.
+\]
+Sustituyendo en la dinámica del estado:
+\[
+x'(t) = x(t) - ce^{-t}, \quad u^*(t) = -ce^{-t}.
+\]
+Cuya solución general es:
+\[
+x(t) = x_0 e^t - \frac{C}{2} (e^t + e^{-t}).
+\]
+Usando la condición final $x(T) = x_1$:
+\[
+x_1 = x_0 e^T - \frac{C}{2} (e^T + e^{-T}) \quad \Rightarrow \quad C = \frac{2(x_0 e^T - x_1)}{e^T + e^{-T}}.
+\]
+como $T$ es variable, para encontrar el valor óptimo de $T$ debemos usar la condición de optimalidad con respecto a $T$:
+\[
+H(T, x(T), u(T), \lambda(T)) = 0. \rightarrow \lambda(T)=2x(T)= 2x_1
+\]
+pero $\lambda(T) = ce^{-T} = 2x_1 \Rightarrow c = 2x_1 e^T$, sustituyendo en la expresión de $C$:
+\[
+\frac{2(x_0 e^T - x_1)}{e^T + e^{-T}} = 2x_1 e^T \quad \Rightarrow \quad x_0 e^T - x_1 = x_1 e^{2T} + x_1.
+\]
+por lo tanto
+\[
+e^Tx_0 = x_1 e^{2T} \Rightarrow e^T = \frac{x_0}{x_1} \quad \Rightarrow \quad T = \ln\left(\frac{x_0}{x_1}\right).
+\]
+y el control que esta dado por $u^*(t) = -ce^{-t}$ con $c=2x_1 e^T= 2x_0$ es 
+\[u^*(t) = -2x_1 e^{\ln\left(\frac{x_0}{x_1}\right)} e^{-t} = -2x_0 e^{-t}.\]
+Por lo tanto, la solución del ejercicio es
+\[
+T^{*}=\ln\!\left(\frac{x_{0}}{x_{1}}\right),
+\]
+
+\[
+x^{*}(t)=x_{0}e^{-t},
+\]
+
+\[
+u^{*}(t)=-2x_{0}e^{-t}.
+\]
+
+Además, el valor mínimo es
+
+\[
+J^{*}
+=\frac{1}{2}\int_{0}^{T^{*}}4x_{0}^{2}e^{-2t}\,dt
+=x_{0}^{2}-x_{1}^{2}.
+\]
+
+\[
+J^{*}=x_{0}^{2}-x_{1}^{2}.
+\]
+\section{Ejercicio 20.3}
+Sea $0 < x_0 < 1$. Resolver
+\[
+\min_{u,T} \int_0^T 1 \, dt
+\]
+sujeto a
+\[
+x'(t) = x(t) - u(t), \quad x(0) = x_0, \quad x(T) = 0,
+\]
+con
+\[
+-1 \le u(t) \le 1.
+\]
+El hamiltoneano es
+\[
+H(t,x,u,\lambda) = 1 + \lambda (x-u).
+\]
+y la ecuación adjunta es
+\[
+\lambda' = -\frac{\partial H}{\partial x} = -\lambda \quad \Rightarrow \quad \lambda(t) = ce^{-t}.
+\]
+Dado que el control esta acotado y queremos minimizar el hamiltoneano entonces queremos ver como se comporta $\partial H/\partial u= -\lambda$ lo cual
+nos lleva a analizar el signo de $\lambda$:
+\begin{itemize}
+    \item si $\lambda < 0$ entonces $u=-1$.
+    \item si $\lambda > 0$ entonces $u= 1$
+    \item si $\lambda = 0$ entonces es un caso singular
+\end{itemize} 
+por lo tanto tenemos que
+\begin{align*}
+    u^*(t) = \begin{cases}
+    -1, & c e^{-t} < 0,\\
+    1, & c e^{-t} > 0,\\
+    \text{singular}, & c e^{-t} = 0.
+    \end{cases}
+\end{align*}
+Luego tenemos que  $\lambda (t) = C e^{-t}$, dado que $e^{-t} >0$ para todo $t$, entonces el signo de $\lambda$ depende del signo de $C$.
+por lo tanto $u*$ será constante, así viendo la ecuación diferencial
+\[
+x' = x-u,
+\]
+tomando a $u = -1 $ tenemos que $x' = x+1$ con solución general $x = de^t -1$, usando la condición inicial $x(0)=x_0$ tenemos que $d=x_0+1$, por lo tanto $x = (x_0+1)e^t -1 > 0 $ 
+y se aleja de $0$ por lo tanto el caso favorable es cuando $u=1$ entonces $x' = x-1$ con solución general $x = de^t +1$, usando la condición inicial $x(0)=x_0$ tenemos que $d=x_0-1$, por lo tanto $x = (x_0-1)e^t +1$ y para que esta solución cumpla la condición final $x(T)=0$ tenemos que
+\[ 
+(x_0-1)e^T +1 = 0 \Rightarrow e^T = \frac{1}{1-x_0} \Rightarrow T = -\ln(1-x_0).
+\]
+Verificando la condición de optimalidad con respecto a $T$:
+\[
+H(T, x(T), u(T), \lambda(T)) = 0 \Rightarrow 1 + \lambda(T)(x(T)-u(T)) = 0 \Rightarrow 1 + \lambda(T)(-1) = 0 \Rightarrow \lambda(T) = 1.
+\]
+como $\lambda(T) = ce^{-T}$ entonces $c = e^T = \frac{1}{1-x_0} > 0$ lo cual es consistente con la elección de $u=1$.
+por lo tanto la solución del ejercicio es
+\[T^* = -\ln(1-x_0),
+\]
+\[
+x^*(t) = (x_0-1)e^t + 1,   
+\]
+\[
+u^*(t) = 1.
+\]
+y el valor mínimo es
+\[J^* = -\ln(1-x_0). \]
 
 \end{document}
