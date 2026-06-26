@@ -1,0 +1,95 @@
+\documentclass{uofa-eng-assignment}
+\usepackage{caption}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = false,
+    linkbordercolor = {white},
+}
+\captionsetup[table]{name=Tabla, labelsep=period}
+\captionsetup[figure]{name=Figura, labelsep=period}
+
+\newcommand{\hpl}{\hyperlink}
+\newcommand{\hpt}{\hypertarget}
+\newcommand*{\name}{Joan Sebastian Ramirez Sanchez  }
+\newcommand*{\id}{202223948}
+\newcommand*{\course}{Introducción a la teoría de control}
+\newcommand*{\assignment}{Tarea 1 de 3}
+\newcommand*{\dated}{\today}
+\newcommand{\tf}{\textbf}
+
+\begin{document}
+
+\maketitle
+\section*{6. Reactor Químico por Lotes (Batch)}
+
+Un reactor donde ocurre la reacción exotérmica de Van de Vusse. Al operar por lotes, la concentración nominal del reactivo $C_{An}(t)$ decae aceleradamente disminuyendo la ganancia del control de alimentación.
+
+\vspace{0.4cm}
+
+\textbf{\large Modelo No Lineal}
+
+\begin{equation}
+\dot{C}_A
+=
+-k_1 C_A
+-k_2 C_A^2
++\frac{1}{V}(C_{A0}-C_A)U(t)
+\end{equation}
+
+\vspace{0.3cm}
+
+\textbf{\large Sistema Linealizado LTV}
+
+\begin{equation}
+A(t)=
+\left[
+-k_1
+-2k_2 C_{An}(t)
+-\frac{1}{V}u_n(t)
+\right],
+\qquad
+B(t)=
+\left[
+\frac{1}{V}
+\left(C_{A0}-C_{An}(t)\right)
+\right].
+\end{equation}
+
+\vspace{0.3cm}
+
+\textbf{Comportamiento interesante:}
+La ganancia de control en $B(t)$ depende directamente de cuántos reactivos quedan libres. Al principio la acción del flujo $U(t)$ es fuerte, pero disminuye conforme el proceso llega a su fin.
+
+\vspace{0.4cm}
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+\textbf{Parámetro} & \textbf{Símbolo} & \textbf{Valor Sugerido} & \textbf{Unidad} \\
+\midrule
+Volumen del reactor & $V$ & 1,5 & m$^3$ \\
+Concentración de la alimentación & $C_{A0}$ & 4,0 & mol/m$^3$ \\
+Constante cinética lineal & $k_1$ & 0,05 & s$^{-1}$ \\
+Constante cinética cuadrática & $k_2$ & 0,15 & m$^3$/(mol$\cdot$s) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.4cm}
+
+\textbf{\large Trayectoria Nominal de Prueba:}
+
+Un decaimiento exponencial químico típico
+
+\begin{equation}
+C_{An}(t)=3.5\,e^{-0.03t}.
+\end{equation}
+\section*{Solución para algún forzante}
+
+\end{document}
