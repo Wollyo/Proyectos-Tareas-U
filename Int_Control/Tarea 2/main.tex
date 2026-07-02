@@ -91,5 +91,83 @@ Un decaimiento exponencial químico típico
 C_{An}(t)=3.5\,e^{-0.03t}.
 \end{equation}
 \section*{Solución para algún forzante}
+Tenemos un reactor químico con una reacción exotérmica de Van de Vusse. El modelo no lineal que describe cómo cambia la concentración $C_A$ del reactivo en el tiempo es:
+
+\begin{equation}
+\dot{C}_A
+=
+-k_1 C_A
+-k_2 C_A^2
++\frac{1}{V}(C_{A0}-C_A)\,U(t) \label{eq}
+\end{equation}
+
+\begin{itemize}
+    \item $C_A$: concentración dentro del reactor (variable de estado).
+    \item $U(t)$: flujo de alimentación (variable de control, entrada que podemos manipular).
+    \item $V$, $C_{A0}$, $k_1$, $k_2$: parámetros conocidos (tabla).
+\end{itemize}
+Escribiendo el sistema como
+\[
+\dot{x}=A(t)x+B(t)u(t), \quad x(t)=C_A 
+\]
+Con los siguientes datos $V= \frac{3}{2},C_{A0}=4, k_1=\frac{1}{20}, k_2= \frac{3}{20}$ y $C_{An}(t)=\frac{7}{2}\,e^{-\frac{3}{100}t}.$
+Entonces se obtiene
+\[
+A(t)
+=
+-\frac{1}{20}
+-\frac{21}{20}e^{-\frac{3}{100}t}
+-\frac{2}{3}u_n(t).
+\]
+Asimismo,
+\[
+B(t)
+=
+\frac{8}{3}
+-\frac{7}{3}e^{-\frac{3}{100}t}.
+\]
+De la ecuación del modelo no lineal,
+\[
+\dot{C}_A
+=
+-k_1C_A
+-k_2C_A^2
++\frac{1}{V}(C_{A0}-C_A)U(t),
+\]
+despejamos el control:
+\[
+U(t)
+=
+\frac{V\left(\dot{C}_A+k_1C_A+k_2C_A^2\right)}
+{C_{A0}-C_A}.
+\]
+Reemplazando los valores y parámetros conocidos por el enunciado tenemos que:
+\[
+U(t)
+=
+\frac{
+\frac{21}{200}e^{-\frac{3}{100}t}
++
+\frac{441}{160}e^{-\frac{3}{50}t}
+}
+{
+4-\frac{7}{2}e^{-\frac{3}{100}t}
+}.
+\]
+Para calcular el resolvente, recordemos que
+\[
+\phi(t,0)
+=
+\exp\left(\int_0^tA(s)\,ds\right).
+\]
+Donde usando Wolfram Mathematica, se obtiene que:
+\[
+\phi(t,0)=
+\exp\!\Big(
+\frac{35}{2}\big(e^{-3t/100}-1\big)
++\frac{57}{100}t
+-\frac{62}{3}\ln\big(8e^{3t/100}-7\big)
+\Big).
+\]
 
 \end{document}
