@@ -91,6 +91,7 @@ Un decaimiento exponencial químico típico
 C_{An}(t)=3.5\,e^{-0.03t}.
 \end{equation}
 \section*{Solución para algún forzante}
+
 Tenemos un reactor químico con una reacción exotérmica de Van de Vusse. El modelo no lineal que describe cómo cambia la concentración $C_A$ del reactivo en el tiempo es:
 
 \begin{equation}
@@ -98,69 +99,131 @@ Tenemos un reactor químico con una reacción exotérmica de Van de Vusse. El mo
 =
 -k_1 C_A
 -k_2 C_A^2
-+\frac{1}{V}(C_{A0}-C_A)\,U(t) \label{eq}
++\frac{1}{V}(C_{A0}-C_A)\,U(t).
+\label{eq}
 \end{equation}
 
-\begin{itemize}
-    \item $C_A$: concentración dentro del reactor (variable de estado).
-    \item $U(t)$: flujo de alimentación (variable de control, entrada que podemos manipular).
-    \item $V$, $C_{A0}$, $k_1$, $k_2$: parámetros conocidos (tabla).
-\end{itemize}
+Como primer punto del ejercicio se escoge un forzante constante nulo,
+\[
+U(t)=0.
+\]
+En este caso, el sistema queda reducido a
+\[
+\dot C_A
+=
+-k_1C_A-k_2C_A^2.
+\]
+Sustituyendo los valores de los parámetros dados, se obtiene
+\[
+\dot C_A
+=
+-\frac1{20}C_A
+-\frac3{20}C_A^2.
+\]
+Esta ecuación diferencial es separable,
+\[
+\frac{dC_A}
+{C_A(1+3C_A)}
+=
+-\frac1{20}\,dt.
+\]
+Mediante fracciones parciales,
+\[
+\frac1{C_A(1+3C_A)}
+=
+\frac1{C_A}
+-
+\frac3{1+3C_A},
+\]
+integrando ambos lados,
+\[
+\ln\left(
+\frac{C_A}{1+3C_A}
+\right)
+=
+-\frac{t}{20}+C.
+\]
+Por tanto,
+\[
+\boxed{
+C_A(t)
+=
+\frac{Ke^{-t/20}}
+{1-3Ke^{-t/20}},
+}
+\]
+donde la constante $K$ queda determinada por la condición inicial.
+\vspace{0.4cm}
+Ahora se considera la trayectoria nominal
+\[
+C_{An}(t)=\frac72e^{-3t/100},
+\]
+y se linealiza el sistema alrededor de dicha trayectoria.
 Escribiendo el sistema como
 \[
-\dot{x}=A(t)x+B(t)u(t), \quad x(t)=C_A 
+\dot{x}=A(t)x+B(t)u(t),
+\qquad
+x(t)=C_A,
 \]
-Con los siguientes datos $V= \frac{3}{2},C_{A0}=4, k_1=\frac{1}{20}, k_2= \frac{3}{20}$ y $C_{An}(t)=\frac{7}{2}\,e^{-\frac{3}{100}t}.$
-Entonces se obtiene
+con los datos
+\[
+V=\frac32,\qquad
+C_{A0}=4,\qquad
+k_1=\frac1{20},\qquad
+k_2=\frac3{20},
+\]
+se obtiene
 \[
 A(t)
 =
--\frac{1}{20}
--\frac{21}{20}e^{-\frac{3}{100}t}
--\frac{2}{3}u_n(t).
+-\frac1{20}
+-\frac{21}{20}e^{-3t/100}
+-\frac23u_n(t).
 \]
 Asimismo,
 \[
 B(t)
 =
-\frac{8}{3}
--\frac{7}{3}e^{-\frac{3}{100}t}.
+\frac83
+-\frac73e^{-3t/100}.
 \]
 De la ecuación del modelo no lineal,
 \[
-\dot{C}_A
+\dot C_A
 =
 -k_1C_A
 -k_2C_A^2
-+\frac{1}{V}(C_{A0}-C_A)U(t),
++\frac1V(C_{A0}-C_A)U(t),
 \]
-despejamos el control:
+despejamos el control,
 \[
 U(t)
 =
-\frac{V\left(\dot{C}_A+k_1C_A+k_2C_A^2\right)}
+\frac{V\left(\dot C_A+k_1C_A+k_2C_A^2\right)}
 {C_{A0}-C_A}.
 \]
-Reemplazando los valores y parámetros conocidos por el enunciado tenemos que:
+Reemplazando la trayectoria nominal y los parámetros conocidos,
 \[
 U(t)
 =
 \frac{
-\frac{21}{200}e^{-\frac{3}{100}t}
+\dfrac{21}{200}e^{-3t/100}
 +
-\frac{441}{160}e^{-\frac{3}{50}t}
+\dfrac{441}{160}e^{-3t/50}
 }
 {
-4-\frac{7}{2}e^{-\frac{3}{100}t}
+4-\dfrac72e^{-3t/100}
 }.
 \]
-Para calcular el resolvente, recordemos que
+Para calcular el resolvente recordemos que
 \[
 \phi(t,0)
 =
-\exp\left(\int_0^tA(s)\,ds\right).
+\exp\left(
+\int_0^tA(s)\,ds
+\right).
 \]
-Donde usando Wolfram Mathematica, se obtiene que:
+Usando Wolfram Mathematica se obtiene
 \[
 \phi(t,0)=
 \exp\!\Big(
@@ -169,13 +232,31 @@ Donde usando Wolfram Mathematica, se obtiene que:
 -\frac{62}{3}\ln\big(8e^{3t/100}-7\big)
 \Big).
 \]
-Y este seria nuestro resolvente para el sistema linealizado LTV. Por lo que la solución de la ecuación diferencial linealizada es:
+Este es el resolvente del sistema linealizado LTV. Por tanto, la solución del sistema linealizado está dada por
 \[
 x(t)
 =
 \phi(t,0)x(0)
 +
-\int_0^t\phi(t,s)B(s)u(s)\,ds.
+\int_0^t
+\phi(t,s)B(s)u(s)\,ds.
+\]
+Como
+\[
+\phi(t,s)=\phi(t,0)\phi(s,0)^{-1},
+\]
+también puede escribirse como
+\[
+x(t)
+=
+\phi(t,0)
+\left[
+x(0)
++
+\int_0^t
+\phi(s,0)^{-1}B(s)u(s)\,ds
+\right].
 \]
 
+Debido a la complejidad de las funciones que aparecen en el resolvente, la integral anterior no admite, en general, una expresión cerrada en funciones elementales para un control arbitrario $u(t)$. Por esta razón, la solución explícita del sistema linealizado se deja indicada mediante la expresión anterior y puede evaluarse numéricamente para un control específico.
 \end{document}
